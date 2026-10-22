@@ -1,0 +1,98 @@
+{
+  "schema_version": "ple-r100-frequency-tiered-token-counts-v1",
+  "status": "fixed",
+  "model": {
+    "identifier": "google/gemma-4-E4B-it",
+    "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+    "weights": "<CACHE_DIR>/huggingface/hub/models--google--gemma-4-E4B-it/snapshots/ee0ef6023621cff504d758262d4e04895a5af4a2/model.safetensors",
+    "weights_sha256": "cfbd3d2f1cd71bd471c37fe2bf8546d5028d41e5736f64e1ca6c6b8893125503",
+    "tokenizer_snapshot": "<CACHE_DIR>/huggingface/hub/models--google--gemma-4-E4B-it/snapshots/ee0ef6023621cff504d758262d4e04895a5af4a2",
+    "vocab_size": 262144,
+    "num_layers": 42,
+    "d_ple": 256,
+    "dense_ple_bytes": 5637144576,
+    "strict_100x_max_resident_bytes": 56371445
+  },
+  "fit_inputs": {
+    "broad_natural": {
+      "fit_config": "configs/fit/optic_e4b_bf16.json",
+      "fit_config_sha256": "0cebe47ac71597d3f5ef521efccfd04dae53bc1625d59b260da11bd9a616cf43",
+      "token_manifest": "artifacts/r100/calibration-cache/broad-v2-coverage/calibration_token_manifest.json",
+      "token_manifest_sha256": "b716209fe6a2a15ec3a4184add8a05ef9c637fcdec3f3b6895b78f8e360062c5",
+      "token_file": "artifacts/r100/calibration-cache/broad-v2-coverage/calibration_token_ids_le_u32.bin",
+      "token_file_sha256": "a85690e97c1d48731353b5883e5422d210e4f56cc1df6a437a97eb664f9c3ada",
+      "sequence_count": 1536,
+      "sequence_length": 512,
+      "gate_file": "artifacts/r100/calibration-cache/broad-v2-coverage/gate-cache-fp16-v2/dout_gate_cache_layer_major_f16.bin",
+      "gate_file_sha256": "db6e467d8ae23b1b1c3461d217ed6e159916c4186f8b0a36036accf417762a53",
+      "gate_manifest": "artifacts/r100/calibration-cache/broad-v2-coverage/gate-cache-fp16-v2/dout_gate_cache_config.json",
+      "gate_manifest_sha256": "8f38af76f9c412ea035669f10646d76464e24dc4a94097805ff486b7a4884407"
+    },
+    "checkpoint_self_generated": {
+      "streams": [
+        {
+          "stream_id": "parent",
+          "token_file": "artifacts/r100/calibration-cache/checkpoint-self-generated-v1/checkpoint_self_generated_token_ids_le_u32.bin",
+          "token_file_sha256": "94362615049462961a278b6052db91a7d2a6f1d8bbe1b8b64d69e80165e77a09",
+          "token_manifest": "artifacts/r100/calibration-cache/checkpoint-self-generated-v1/checkpoint_self_generated_token_manifest.json",
+          "token_manifest_sha256": "22a9c7964bdbd3b7324ed4c9038df14132aa8ee4dcb8e85ac41e18cf1656669d",
+          "sequence_count": 2048,
+          "sequence_length": 256
+        },
+        {
+          "stream_id": "extension",
+          "token_file": "artifacts/r100/calibration-cache/checkpoint-self-generated-extension-v1/checkpoint_self_generated_token_ids_le_u32.bin",
+          "token_file_sha256": "07d4eb88adab90a0e8ca3880e65194320d97e27eeb82be787ff88ff19e61ebdd",
+          "token_manifest": "artifacts/r100/calibration-cache/checkpoint-self-generated-extension-v1/checkpoint_self_generated_token_manifest.json",
+          "token_manifest_sha256": "5f5c407156db486eeb07942c8fd238662b1a3a8171731c620acacba33f2e771b",
+          "sequence_count": 2048,
+          "sequence_length": 256
+        }
+      ]
+    },
+    "complete_tokenizer_rows": {
+      "path": "artifacts/r100/calibration-cache/broad-v2-coverage/complete_tokenizer_row_ids_le_u32.bin",
+      "sha256": "21b9bf484e8bb6ca346d2cd113f24594cadb15c31c3e6ea4bd99897b1e728282",
+      "row_count": 262144
+    },
+    "control_token_ids": [
+      2,
+      1,
+      3,
+      0,
+      4,
+      258881,
+      256000,
+      255999,
+      258883,
+      101,
+      258882,
+      106,
+      52,
+      49,
+      47,
+      51,
+      258880,
+      100,
+      105,
+      48,
+      46,
+      50,
+      98,
+      258884
+    ]
+  },
+  "split": {
+    "validation_fraction": 0.2,
+    "fit_fraction": 0.8,
+    "hash": "sha256",
+    "validation_rule": "unsigned_big_endian_sha256(sequence_identity_utf8) mod 5 == 0",
+    "natural_sequence_identity": "canonical JSON [dataset, revision, config, selected_candidate_index] using the pinned broad token manifest",
+    "self_generated_sequence_identity": "canonical JSON [stream_id, sequence_ordinal, sha256(sequence_little_endian_u32_bytes)]",
+    "tie_break": "ascending sequence identity UTF-8 bytes",
+    "split_manifest_output": "artifacts/r100/frequency-tiered-token-counts-v1/token_count_manifest.json"
+  },
+  "storage": {
+    "external_download_bytes": 0
+  }
+}

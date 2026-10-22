@@ -1,0 +1,126 @@
+{
+  "schema_version": "full-additive-quantization-ple-w4-matrix-v1",
+  "status": "fixed",
+  "classification": "external_baseline",
+  "publication_name": "Author-fixed-schedule Full Additive Quantization (AQ) adapted to per-layer embeddings",
+  "method_role": "external_baseline",
+  "method_identity": {
+    "method_id_prefix": "full_additive_quantization_author_fixed_schedule_ple",
+    "method_config_template": "configs/methods/full_additive_quantization_author_fixed_schedule_ple_{model}_{ratio_key}_seed0.json",
+    "publication_name": "Author-fixed-schedule Full Additive Quantization (AQ) adapted to per-layer embeddings"
+  },
+  "primary_paper": {
+    "title": "Additive Quantization for Extreme Vector Compression",
+    "authors": "Artem Babenko and Victor Lempitsky",
+    "venue": "CVPR",
+    "year": 2014,
+    "doi": "10.1109/CVPR.2014.124"
+  },
+  "author_algorithm": {
+    "repository": "https://github.com/arbabenko/Quantizations",
+    "commit": "149e8d5226b96c36b55ef2423bcdebc94aec4099",
+    "source_file": "aqCoding.py",
+    "reused_core": [
+      "encodePointsBeamSearch beam assignment",
+      "learnCodebooksAQ global sparse-LSMR codebook update",
+      "learnCodebooksAQ default fixed itsCount=10 outer schedule"
+    ]
+  },
+  "models": {
+    "e2b": {
+      "model_id": "google/gemma-4-E2B-it-qat-q4_0-unquantized",
+      "revision": "6befbaca7398925921802abd1f277b495b78b738",
+      "snapshot": "<MODEL_DIR>/gemma-4-E2B-it-qat-q4_0-unquantized-6befbaca7398925921802abd1f277b495b78b738",
+      "weight_file": "model.safetensors",
+      "vocab_size": 262144,
+      "num_layers": 35,
+      "d_ple": 256,
+      "dense_ple_bytes": 4697620480,
+      "evaluation_w4a16_model_config": "configs/models/e2b_w4a16.json",
+      "source_qat_parent_model_config": "configs/models/e2b_qat_parent.json"
+    },
+    "e4b": {
+      "model_id": "google/gemma-4-E4B-it-qat-q4_0-unquantized",
+      "revision": "476025a01dbf99361c062bbeca3d6a76bb4c4566",
+      "snapshot": "<MODEL_DIR>/gemma-4-E4B-it-qat-q4_0-unquantized-476025a01dbf99361c062bbeca3d6a76bb4c4566",
+      "weight_file": "model.safetensors",
+      "vocab_size": 262144,
+      "num_layers": 42,
+      "d_ple": 256,
+      "dense_ple_bytes": 5637144576,
+      "evaluation_w4a16_model_config": "configs/models/e4b_w4a16.json",
+      "source_qat_parent_model_config": "configs/models/e4b_qat_parent.json"
+    }
+  },
+  "rates": {
+    "r20": {
+      "target_ratio": 20,
+      "M": 25,
+      "K": 256,
+      "bits": 8,
+      "expected_resident_bytes_by_model": {
+        "e2b": 232652800,
+        "e4b": 278528000
+      }
+    },
+    "r40": {
+      "target_ratio": 40,
+      "M": 12,
+      "K": 256,
+      "bits": 8,
+      "expected_resident_bytes_by_model": {
+        "e2b": 111673344,
+        "e4b": 133693440
+      }
+    },
+    "r100": {
+      "target_ratio": 100,
+      "M": 5,
+      "K": 256,
+      "bits": 8,
+      "expected_resident_bytes_by_model": {
+        "e2b": 46530560,
+        "e4b": 55705600
+      }
+    }
+  },
+  "fit": {
+    "data_access_regime": "model_weights_only",
+    "fit_rows": 262144,
+    "fit_row_sampling": "seeded uniform sample without replacement over layer-major checkpoint PLE rows",
+    "seed": 0,
+    "initialization": "greedy residual k-means solely as full-AQ initialization",
+    "initialization_kmeans_iterations": 8,
+    "fit_beam_size": 16,
+    "final_beam_size": 64,
+    "row_chunk": 128,
+    "lsmr": {
+      "atol": 1e-08,
+      "btol": 1e-08,
+      "conlim": 100000000.0,
+      "maxiter": 200
+    },
+    "completion": {
+      "mode": "fixed_outer_sweeps",
+      "fixed_outer_sweeps": 10,
+      "terminal_status": "completed_fixed_schedule",
+      "assignment_churn_role": "diagnostic_only",
+      "relative_improvement_role": "diagnostic_only",
+      "resume_boundary": "complete_outer_sweep_only"
+    }
+  },
+  "run_provenance": {
+    "deterministic_rerun_required": true,
+    "reuse_prior_observed_trajectory_prefix": false,
+    "reuse_prior_final_beam16_checkpoint": false,
+    "checkpoint_binding": "builder hash + this build-config hash + source revision/hash + deterministic fit-row partition + exact geometry"
+  },
+  "storage_contract": {
+    "codebook_dtype": "float16",
+    "code_layout": "one independently packed code stream per full-dimensional codebook",
+    "resident_bytes": "M*ceil((V*L)*bits/8) + M*K*d_ple*2",
+    "metadata_and_npz_container_overhead_counted": false,
+    "hidden_dense_copy_allowed": false,
+    "capability_reconstruction_location": "<SCRATCH_DIR> only"
+  }
+}

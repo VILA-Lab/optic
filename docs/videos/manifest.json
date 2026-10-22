@@ -1,0 +1,66 @@
+{
+  "videos": [
+    {
+      "language": "en",
+      "video": "optic-core-method-en.mp4",
+      "subtitles": "optic-en.srt",
+      "duration_seconds": 175.829427,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "chapters": 7,
+      "sha256": "10bf90f0946fba77462c305e925d1006b34ef4a58fa972cf46eedd7e8642cc41",
+      "bytes": 10688397,
+      "narration_voice": "Aiden",
+      "narration_model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "narration_model_revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "narration_peak_gpu_gib": 4.193,
+      "embed_url": "https://github.com/user-attachments/assets/1d71b26f-c5ac-42fa-abb4-6c4f748cbcdc"
+    },
+    {
+      "language": "zh",
+      "video": "optic-core-method-zh.mp4",
+      "subtitles": "optic-zh.srt",
+      "duration_seconds": 208.230417,
+      "resolution": [
+        1920,
+        1080
+      ],
+      "fps": 30,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "chapters": 7,
+      "sha256": "881b5ac049b8ecfb6851b6933f1cec9064e2f404ef62e16c6ea0e07fac2637bb",
+      "bytes": 11113575,
+      "narration_voice": "Uncle_Fu",
+      "narration_model": "Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "narration_model_revision": "0c0e3051f131929182e2c023b9537f8b1c68adfe",
+      "narration_peak_gpu_gib": 4.258,
+      "embed_url": "https://github.com/user-attachments/assets/ef158c17-e889-428f-b76c-8acfc6d08d55"
+    }
+  ],
+  "method_source": {
+    "title": "Extreme Compression of Per-Layer Embeddings via Cross-Layer Latent Vector Quantization",
+    "arxiv_url": null,
+    "status": "arXiv coming soon"
+  },
+  "synchronization": {
+    "speech_start_delay_seconds": 0,
+    "advance_from_previous_version_seconds": 0.25,
+    "minimum_beat_tail_seconds": 0.35,
+    "checked_beats": 48,
+    "max_audio_caption_offset_seconds": 1.2666666677318972e-05,
+    "audio_assembly": "single PCM track at absolute caption timestamps",
+    "content_start_seconds": 1.2
+  },
+  "cover": {
+    "image": "cover.png",
+    "source": "cover.svg",
+    "duration_seconds": 1.2,
+    "title": "Extreme Compression of Per-Layer Embeddings via Cross-Layer Latent Vector Quantization"
+  }
+}

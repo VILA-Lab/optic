@@ -1,0 +1,224 @@
+{
+  "schema_version": "ple-r100-broad-calibration-v1",
+  "status": "fixed",
+  "protocol_id": "e4b_r100_broad_calibration_524288_positions_v1",
+  "model": {
+    "identifier": "google/gemma-4-E4B-it",
+    "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+    "local_snapshot": "<CACHE_DIR>/huggingface/hub/models--google--gemma-4-E4B-it/snapshots/ee0ef6023621cff504d758262d4e04895a5af4a2"
+  },
+  "sequence": {
+    "length": 512,
+    "count": 1024,
+    "positions": 524288,
+    "manual_bos_prepended": true,
+    "tokenizer_add_special_tokens": false,
+    "context_reset_between_sequences": true,
+    "max_sequences_per_document": 2
+  },
+  "sampling": {
+    "seed": 20260830,
+    "stream_shuffle_buffer": 1024,
+    "no_raw_text_persisted": true,
+    "source_document_filter": "reject a complete document if any normalized exact 13-token window occurs in the evaluation prompt-or-reference signature set"
+  },
+  "token_coverage": {
+    "vocab_size": 262144,
+    "natural_context_unique_token_coverage_report_required": true,
+    "report_per_source_and_cumulative_coverage": true,
+    "complete_tokenizer_row_stratum": {
+      "enabled": true,
+      "source": "the checkpoint-distributed tokenizer vocabulary only",
+      "construction": "all integer token ids in [0, vocab_size), exactly once",
+      "target_row_coverage_fraction": 1.0,
+      "use": "model-only row-level fitting term; never interpreted or forwarded as natural context"
+    },
+    "combined_fit_token_row_coverage_required": 1.0
+  },
+  "storage": {
+    "policy": "configs/storage.json",
+    "per_source_reserve_bytes": 5368709120,
+    "output_directory": "artifacts/r100/calibration-cache/broad-v1",
+    "isolated_huggingface_cache": ".cache/r100-huggingface"
+  },
+  "sources": [
+    {
+      "tag": "fineweb_en",
+      "dataset": "HuggingFaceFW/fineweb",
+      "config": "sample-10BT",
+      "revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "id",
+      "sequences": 256
+    },
+    {
+      "tag": "fineweb_edu_en",
+      "dataset": "HuggingFaceFW/fineweb-edu",
+      "config": "sample-10BT",
+      "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "id",
+      "sequences": 256
+    },
+    {
+      "tag": "open_web_math_en",
+      "dataset": "open-web-math/open-web-math",
+      "revision": "fde8ef8de2300f5e778f56261843dab89f230815",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "url",
+      "sequences": 256
+    },
+    {
+      "tag": "fineweb2_zh",
+      "dataset": "HuggingFaceFW/fineweb-2",
+      "config": "cmn_Hani",
+      "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "id",
+      "sequences": 32
+    },
+    {
+      "tag": "fineweb2_ja",
+      "dataset": "HuggingFaceFW/fineweb-2",
+      "config": "jpn_Jpan",
+      "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "id",
+      "sequences": 32
+    },
+    {
+      "tag": "fineweb2_ko",
+      "dataset": "HuggingFaceFW/fineweb-2",
+      "config": "kor_Hang",
+      "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "id",
+      "sequences": 32
+    },
+    {
+      "tag": "fineweb2_ar",
+      "dataset": "HuggingFaceFW/fineweb-2",
+      "config": "arb_Arab",
+      "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "id",
+      "sequences": 32
+    },
+    {
+      "tag": "fineweb2_hi",
+      "dataset": "HuggingFaceFW/fineweb-2",
+      "config": "hin_Deva",
+      "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "id",
+      "sequences": 32
+    },
+    {
+      "tag": "fineweb2_es",
+      "dataset": "HuggingFaceFW/fineweb-2",
+      "config": "spa_Latn",
+      "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "id",
+      "sequences": 32
+    },
+    {
+      "tag": "fineweb2_fr",
+      "dataset": "HuggingFaceFW/fineweb-2",
+      "config": "fra_Latn",
+      "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "id",
+      "sequences": 32
+    },
+    {
+      "tag": "fineweb2_ru",
+      "dataset": "HuggingFaceFW/fineweb-2",
+      "config": "rus_Cyrl",
+      "revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+      "split": "train",
+      "text_field": "text",
+      "id_field": "id",
+      "sequences": 32
+    }
+  ],
+  "decontamination": {
+    "ngram_tokens": 13,
+    "normalization": "Unicode NFKC, lowercase, Unicode word-or-punctuation tokenization",
+    "direct_files": [
+      {
+        "tag": "l1_wikitext2_test",
+        "path": "data/request-sets/wikitext-2-raw-v1-test.txt",
+        "kind": "text"
+      },
+      {
+        "tag": "l1_piqa_validation",
+        "path": "data/request-sets/piqa-validation-complete-1838.jsonl",
+        "kind": "jsonl"
+      },
+      {
+        "tag": "l1_gsm8k_test",
+        "path": "data/request-sets/gsm8k-full-reference-1319.jsonl",
+        "kind": "jsonl"
+      },
+      {
+        "tag": "l1_gsm8k_fewshot",
+        "path": "data/request-sets/gsm8k-fewshot-train-first-8.jsonl",
+        "kind": "jsonl"
+      },
+      {
+        "tag": "l2_ifbench",
+        "path": ".external/IFBench/data/IFBench_test.jsonl",
+        "kind": "jsonl"
+      }
+    ],
+    "arrow_sources": [
+      {
+        "tag": "l2_gpqa_diamond",
+        "glob": "<CACHE_DIR>/huggingface/datasets/Idavidrein___gpqa/gpqa_diamond/0.0.0/633f5ee89ab8ad4522a9f850766b73f62147ffdd/gpqa-train.arrow",
+        "columns": [
+          "Question",
+          "Correct Answer",
+          "Incorrect Answer 1",
+          "Incorrect Answer 2",
+          "Incorrect Answer 3",
+          "Explanation"
+        ]
+      },
+      {
+        "tag": "l2_aime_2026",
+        "glob": "<CACHE_DIR>/huggingface/datasets/MathArena___aime_2026/default/0.0.0/d2de22f3c656b4f56cf8981212186377d1e23bc3/aime_2026-train.arrow",
+        "columns": [
+          "problem"
+        ]
+      },
+      {
+        "tag": "l2_infographic_vqa",
+        "glob": "<CACHE_DIR>/modelscope/datasets/lmms-lab___doc_vqa/InfographicVQA-53eb9b40e89bda51/0.0.0/master/doc_vqa-validation-*.arrow",
+        "columns": [
+          "question",
+          "answers"
+        ]
+      },
+      {
+        "tag": "l2_mmlu_redux_30_subjects",
+        "glob": "<CACHE_DIR>/huggingface/datasets/edinburgh-dawg___mmlu-redux/*/0.0.0/3720db6aeb3d019de48bf37916c1a54074ff4997/mmlu-redux-test.arrow",
+        "columns": [
+          "question",
+          "choices",
+          "correct_answer"
+        ]
+      }
+    ]
+  }
+}

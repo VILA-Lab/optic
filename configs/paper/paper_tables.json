@@ -1,0 +1,143 @@
+{
+  "description": "Main-table settings.",
+  "tables": [
+    {
+      "table": "tab:primary-matrices",
+      "title": "Nominal 100x comparison; the per-task lines give the appendix per-task tables (tab:appendix-bf16-per-task and tab:appendix-w4a16-per-task).",
+      "columns": [
+        {
+          "column": "E2B BF16",
+          "reference": "dense_gemma4_e2b_it",
+          "rows": {
+            "PQ": [
+              "original_bf16_e2b_pq_r100_seed0"
+            ],
+            "RVQ": [
+              "original_bf16_e2b_rvq_r100_seed0"
+            ],
+            "OPQ-P": [
+              "original_bf16_e2b_opq_parametric_r100_seed0"
+            ],
+            "AQ": [
+              "full_additive_quantization_author_fixed_schedule_ple_original_bf16_e2b_r100_seed0"
+            ],
+            "AQLM Euclidean beam encoder": [
+              "original_bf16_e2b_aqlm_euclidean_beam_encoder_r100_seed0"
+            ],
+            "INT8 randomized low-rank SVD": [
+              "original_bf16_e2b_low_rank_svd_r100_seed0"
+            ],
+            "Output-path-weighted PCA-PQ": [
+              "original_bf16_e2b_output_path_weighted_pca_pq_r100_seed0"
+            ],
+            "OPTIC": [
+              "optic_e2b_bf16_r100"
+            ],
+            "Frequency-tiered OPTIC": [
+              "frequency_tiered_optic_e2b_bf16_r100"
+            ]
+          }
+        },
+        {
+          "column": "E4B BF16",
+          "reference": "dense@google/gemma-4-E4B-it",
+          "rows": {
+            "PQ": [
+              "pq_r100"
+            ],
+            "RVQ": [
+              "rvq_r100"
+            ],
+            "OPQ-P": [
+              "opq_parametric_r100"
+            ],
+            "AQ": [
+              "full_additive_quantization_author_fixed_schedule_ple_original_bf16_e4b_r100_seed0"
+            ],
+            "AQLM Euclidean beam encoder": [
+              "aqlm_l2_beam_objective_ple_adaptation_100x"
+            ],
+            "INT8 randomized low-rank SVD": [
+              "low_rank_svd_r100"
+            ],
+            "Output-path-weighted PCA-PQ": [
+              "output_path_weighted_pca_pq_r100"
+            ],
+            "OPTIC": [
+              "optic_e4b_bf16_r100"
+            ],
+            "Frequency-tiered OPTIC": [
+              "frequency_tiered_optic_e4b_bf16_r100"
+            ]
+          }
+        },
+        {
+          "column": "E2B W4A16",
+          "reference": "official_gemma4_e2b_it_qat_w4a16_ct",
+          "rows": {
+            "PQ": [
+              "w4a16_e2b_pq_r100_seed0"
+            ],
+            "RVQ": [
+              "w4a16_e2b_rvq_r100_seed0"
+            ],
+            "OPQ-P": [
+              "w4a16_e2b_opq_parametric_r100_seed0"
+            ],
+            "AQ": [
+              "full_additive_quantization_author_fixed_schedule_ple_e2b_r100_seed0"
+            ],
+            "AQLM Euclidean beam encoder": [
+              "aqlm_euclidean_beam_encoder_ple_w4a16_e2b_r100_seed0"
+            ],
+            "INT8 randomized low-rank SVD": [
+              "w4a16_e2b_low_rank_svd_r100_seed0"
+            ],
+            "Output-path-weighted PCA-PQ": [
+              "qat_e2b_w4a16_plus_parent_source_path_weighted_pca_pq_r100"
+            ],
+            "OPTIC": [
+              "optic_e2b_w4a16_r100"
+            ],
+            "Frequency-tiered OPTIC": [
+              "frequency_tiered_optic_e2b_w4a16_r100"
+            ]
+          }
+        },
+        {
+          "column": "E4B W4A16",
+          "reference": "official_gemma4_e4b_it_qat_w4a16_ct",
+          "rows": {
+            "PQ": [
+              "w4a16_e4b_pq_r100_seed0"
+            ],
+            "RVQ": [
+              "w4a16_e4b_rvq_r100_seed0"
+            ],
+            "OPQ-P": [
+              "w4a16_e4b_opq_parametric_r100_seed0"
+            ],
+            "AQ": [
+              "full_additive_quantization_author_fixed_schedule_ple_e4b_r100_seed0"
+            ],
+            "AQLM Euclidean beam encoder": [
+              "aqlm_euclidean_beam_encoder_ple_w4a16_e4b_r100_seed0"
+            ],
+            "INT8 randomized low-rank SVD": [
+              "w4a16_e4b_low_rank_svd_r100_seed0"
+            ],
+            "Output-path-weighted PCA-PQ": [
+              "qat_e4b_w4a16_plus_parent_source_fixed_calibration_pca_pq_r100"
+            ],
+            "OPTIC": [
+              "optic_e4b_w4a16_r100"
+            ],
+            "Frequency-tiered OPTIC": [
+              "frequency_tiered_optic_e4b_w4a16_r100"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

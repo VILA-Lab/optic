@@ -1,0 +1,48 @@
+{
+  "benchmark_id": "aime_2026",
+  "suite_level": "L2",
+  "status": "locked",
+  "approved_for_paired_ple": true,
+  "official_reproduction": false,
+  "driver": "evalscope_api",
+  "protocol": {
+    "protocol_id": "matharena_aime2026_30x4_gemma4_v1",
+    "dataset": "MathArena/aime_2026",
+    "split": "train",
+    "questions": 30,
+    "few_shot": 0,
+    "thinking": true,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "attempt_seeds": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "max_new_tokens": 32768,
+    "attempts": 120,
+    "request_n": 1,
+    "best_of": 1,
+    "attempt_aggregation": "micro_accuracy_over_all_120_attempts",
+    "tools": false,
+    "parser": "MathArena boxed integer 0-999"
+  },
+  "runtime": {
+    "kind": "text",
+    "max_model_len": 40960,
+    "max_num_seqs": 32
+  },
+  "evalscope": {
+    "dataset": "aime26",
+    "dataset_hub": "modelscope",
+    "override": "none",
+    "dataset_args": {
+      "aime26": {
+        "prompt_template": "Put your final answer within \\boxed{{}}.\n\nThe answer is an integer between 0 and 999 inclusive.\n\n{question}"
+      }
+    },
+    "eval_batch_size": 30
+  }
+}

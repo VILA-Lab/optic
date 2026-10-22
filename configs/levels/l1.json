@@ -1,0 +1,7 @@
+{
+  "suite_level": "L1",
+  "description": "WikiText-2 perplexity, PIQA and GSM8K",
+  "benchmarks": [
+    "l1_quality_bundle"
+  ]
+}

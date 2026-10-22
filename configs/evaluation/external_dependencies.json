@@ -1,0 +1,16 @@
+{
+  "evalscope_bridge": {
+    "root": "evaluation_client",
+    "files": {
+      "run_evalscope.py": "b9c00b2b10ba8a7fab2df94137248e1fe2d8d03bcf96d17464a94b2e4237170e",
+      "protocol_overrides.py": "8ac24054ef5659b06d801861a681574ba8f6295ed3add4413565a946c0c00e06",
+      "derive_vision_config.py": "4c9aa467c395e7b66c3c8e3198414d9fcc7d6da0e3f8fe3feabb567c2e35d0ef",
+      "rescore_ifbench_official.py": "988af4bfcbc2b74cf1a2c1f973a5efee55456521c5d09787703ae2d0f1a5b9de"
+    },
+    "role": "hash-pinned execution bridge"
+  },
+  "ifbench_scorer": {
+    "repository": ".external/IFBench",
+    "revision": "db69a6f05689830b0068b8f1529ebcfd2f3b164c"
+  }
+}

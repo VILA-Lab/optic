@@ -1,0 +1,35 @@
+{
+  "schema_version": "frequency-adaptive-variable-rate-multiratio-build-v1",
+  "status": "fixed",
+  "method_name": "frequency-tiered OPTIC",
+  "target_ratio": 100,
+  "rate_geometry": {
+    "target_ratio": 100,
+    "base_group_count": 160,
+    "extra_group_count": 40,
+    "maximum_group_count": 200,
+    "maximum_latent_dim": 800,
+    "high_rate_ordinary_token_count": 110411,
+    "maximum_resident_bytes": 56371445,
+    "expected_resident_bytes": 56371428,
+    "raw_full_code_fit_resident_bytes": 70063104
+  },
+  "base_fit_recipe_path": "configs/fit/tiered_optic_e4b_w4a16_recipe.json",
+  "fit_output_directory": "<SCRATCH_DIR>/ple-e4b-qat-parent-frequency-tiered-optic-r100-fit-v1/seed0",
+  "compact_output_root": "<SCRATCH_DIR>/ple-e4b-qat-parent-frequency-tiered-optic-r100-finalized-v1/seed0",
+  "capability_output_root": "<SCRATCH_DIR>/ple-e4b-qat-parent-frequency-tiered-optic-r100-capability-v1",
+  "require_source_lineage_metadata": true,
+  "compatible_runtime_targets": [
+    {
+      "identifier": "google/gemma-4-E4B-it-qat-q4_0-unquantized",
+      "revision": "476025a01dbf99361c062bbeca3d6a76bb4c4566",
+      "role": "fit_source_and_capability_target"
+    },
+    {
+      "identifier": "google/gemma-4-E4B-it-qat-w4a16-ct",
+      "revision": "6cd26aaa2357fb2bad8c51699a7558a4d1a965bb",
+      "role": "capability_target_with_bitwise_identical_ple_tensor"
+    }
+  ],
+  "quality_evaluation_run": false
+}

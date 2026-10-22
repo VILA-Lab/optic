@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080" role="img" aria-labelledby="title description">
+  <title id="title">OPTIC</title>
+  <desc id="description">Extreme Compression of Per-Layer Embeddings via Cross-Layer Latent Vector Quantization</desc>
+  <rect width="1920" height="1080" fill="#141820"/>
+  <g font-family="DejaVu Sans, sans-serif" text-anchor="middle">
+    <text x="960" y="430" font-size="164" font-weight="700" letter-spacing="5" fill="#58c4dd">OPTIC</text>
+    <text x="960" y="592" font-size="62" fill="#f0f3f8">Extreme Compression of Per-Layer Embeddings</text>
+    <text x="960" y="678" font-size="58" fill="#c6ceda">via Cross-Layer Latent Vector Quantization</text>
+  </g>
+</svg>

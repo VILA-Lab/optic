@@ -1,0 +1,8 @@
+vllm==0.19.1
+torch==2.10.0
+transformers==5.7.0
+evalscope==1.8.1
+numpy==2.2.6
+safetensors==0.8.0
+datasets
+nltk

@@ -1,0 +1,103 @@
+{
+  "schema_version": "ple-paper-protocol-execution-lock-v1",
+  "lock_id": "gemma4-ple-l1-l2-multimodel-scheduler-vllm-bound-v3-20260901",
+  "status": "locked",
+  "execution_delta": {
+    "explicit_model_configuration": {
+      "entrypoint_option": "--model-config",
+      "scope": "The model configuration is resolved to a canonical file, hashed into the plan and task output, copied into each task directory, and passed unchanged through the CLI, orchestration, task, direct-runner and vLLM-server layers. Direct runners reject a model path that differs from the configuration snapshot.",
+      "supported_runtime_fields": [
+        "dtype",
+        "load_format",
+        "quantization"
+      ]
+    }
+  },
+  "scope": [
+    "L1",
+    "L2"
+  ],
+  "benchmarks": {
+    "L1": [
+      "wikitext_2",
+      "piqa",
+      "gsm8k"
+    ],
+    "L2": [
+      "gpqa_diamond",
+      "aime_2026",
+      "ifbench",
+      "infographic_vqa",
+      "mmlu_redux_30x100"
+    ]
+  },
+  "level_entries": {
+    "L1": [
+      "l1_quality_bundle"
+    ],
+    "L2": [
+      "gpqa_diamond",
+      "aime_2026",
+      "ifbench",
+      "infographic_vqa",
+      "mmlu_redux_30x100"
+    ]
+  },
+  "protocol_ids": {
+    "l1_quality_bundle": "gemma4_ple_l1_wt2_piqa_gsm8k8_v1",
+    "gpqa_diamond": "simple_evals_gpqa_diamond_perm4_gemma4_v1",
+    "aime_2026": "matharena_aime2026_30x4_gemma4_v1",
+    "ifbench": "ifbench_author_t0_gemma_thinking_v1",
+    "infographic_vqa": "infovqa_lmms_prompt_gemma4_aligned_v1",
+    "mmlu_redux_30x100": "mmlu_redux_scoreprompt4_30x100_v1"
+  },
+  "invariants": {
+    "one_protocol_per_benchmark": true,
+    "request_n": 1,
+    "best_of": 1,
+    "all_required_attempts_enter_denominator": true,
+    "same_protocol_for_all_methods": true,
+    "selected_model_config_path_is_canonical": true,
+    "selected_model_config_sha256_is_recorded": true,
+    "selected_model_config_is_copied_into_task_output": true,
+    "direct_model_path_must_match_selected_snapshot": true,
+    "scheduler_visible_device_count": 1,
+    "task_logical_gpu": 0,
+    "expected_physical_gpu_uuid_must_match_inherited_cuda_visible_devices": true,
+    "vllm_child_ordinal_must_resolve_to_expected_physical_gpu_uuid": true,
+    "vllm_child_binding_preflight_before_benchmark": true
+  },
+  "locked_files": {
+    "configs/levels/l1.json": "cc5b69c1d2d66d831923ab8265372363056f7cd6f075dba414e508135519f747",
+    "configs/levels/l2.json": "ef7b2d535c6b376a9e74157e225aceb4355195dd24f14f87968f8e2cfcbd2357",
+    "configs/benchmarks/l1_quality_bundle.json": "a53a7faa93f06d314eb39b09b02b2c5ed7e8cc081f202ad93d8a547f821381e6",
+    "configs/benchmarks/gpqa_diamond.json": "727995647bcc5c37e24c6b12a3a86290e6e7d904df2255542bff66c2b0f3260f",
+    "configs/benchmarks/aime_2026.json": "fb049990d0ec17f4a7e8af13bde90fff90528fe636d2e89e632d6a4c662f8bc3",
+    "configs/benchmarks/ifbench.json": "7e25fef661bd4d1f4fd9027caab5f4b8a52387906e0844bee9645f28c2d9dcdc",
+    "configs/benchmarks/infographic_vqa.json": "888e11413c5c1bb68b2ec73cac5608f2018cdcadd792999d4046d9ab02f3b9d2",
+    "configs/benchmarks/mmlu_redux_30x100.json": "62a6d89a1e7b0d3bb3f8526725c17c19e9af91f37dc70b45f614629905a96873",
+    "configs/evaluation/vision.json": "5b165026137aae729c53eb1a66a2f03229da27f1044cb55e9c66ac3285456fe4",
+    "src/ple_eval/l1_runner.py": "346815f110c66de24f34f0ddf21bb699497a5a5b2f7b77e5ffaced02fccc07fa",
+    "src/ple_eval/gpqa_runner.py": "dd320c90b79cdc64b283decd6efad1f161de5485ac4afaf743fe741f1b6488b0",
+    "src/ple_eval/mmlu_redux_runner.py": "adaf74b1fad77d33193e68d4a6a71dcaa1ce6a11f19b4eb33f4f18f6f52d2309",
+    "src/ple_eval/config.py": "5b0562d3501ca69bb94041559f5999d994a527df31ce2995b404b26e6fdafd3c",
+    "src/ple_eval/direct_common.py": "479965160a419dc700f16db2198fcc85154e7ace320463dbb1ccf2081caa6dce",
+    "src/ple_eval/vllm_compat.py": "0544d3338ece37ec84907f60fd77bca99f89f28d6770c2424b27df62d418bb29",
+    "src/ple_eval/vllm_plugin.py": "950bc41f2651142af482fbf2d649bbb988f9f9f29a69fe26bcc9df34da1086cd",
+    "src/ple_eval/gpu_binding.py": "218ef0f2a658176655969726140854c2864aa70af6a9b29848709669e0c6062e",
+    "src/ple_eval/task_runner.py": "c269fd2176711eaa44f5eef71cac147afa6700342cca0237ad9a3c560416fbd6",
+    "src/ple_eval/cli.py": "b8f7b6bebaf27f482dd33e3c49b89bc6a8bce4f9746b80a3335757e5a27bafda",
+    "src/ple_eval/orchestrator.py": "9af2af74943363b9efb9a1bfa57677ccfebb14cf760990e6997642c3e8d2652c",
+    "scripts/validate_vllm_child_gpu_binding.py": "7a00ca6c99101c1c3ab07129c3f10a02ac779b21470ad1de3a88cc3bd5c13d73",
+    "src/ple_eval/evalscope_audit.py": "2c70d0155b9751e9d8f5db97ec2bcfbfb4c2b432953a891275a04321bacc7edd",
+    "pyproject.toml": "691845d68ea6aede351770b9b3a18ed22f107fde42c5745fc99b29ecc8f5a576",
+    "evaluation_client/run_evalscope.py": "b9c00b2b10ba8a7fab2df94137248e1fe2d8d03bcf96d17464a94b2e4237170e",
+    "evaluation_client/protocol_overrides.py": "8ac24054ef5659b06d801861a681574ba8f6295ed3add4413565a946c0c00e06",
+    "evaluation_client/derive_vision_config.py": "4c9aa467c395e7b66c3c8e3198414d9fcc7d6da0e3f8fe3feabb567c2e35d0ef",
+    "evaluation_client/rescore_ifbench_official.py": "988af4bfcbc2b74cf1a2c1f973a5efee55456521c5d09787703ae2d0f1a5b9de",
+    "src/ple_eval/evaluate.py": "065a4a57106772eaa47c6b142f7f682eaa01a11311f862ae982722ef30508404",
+    "src/ple_eval/materialize.py": "1bc5c4a70155241a95985fc855555b5bd4379fa1bbb4cba2d0379a0848c311cf",
+    "src/ple_eval/validation.py": "704f7300788b61b4948b576e4a0c3969799623b3fe49eabffcb0511b8fddb786",
+    "configs/artifact.json": "edda93e5eb03642ac255511120f1cdb5809f1e79e273144c10f175231cc18ba5"
+  }
+}

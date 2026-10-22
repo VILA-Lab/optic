@@ -1,0 +1,16 @@
+{
+  "model_id": "google/gemma-4-E2B-it-qat-q4_0-unquantized",
+  "revision": "6befbaca7398925921802abd1f277b495b78b738",
+  "snapshot": "<MODEL_DIR>/gemma-4-E2B-it-qat-q4_0-unquantized-6befbaca7398925921802abd1f277b495b78b738",
+  "weight_file": "model.safetensors",
+  "ple_dense_bytes": 4697620480,
+  "dtype": "bfloat16",
+  "served_model_name": "google/gemma-4-E2B-it-qat-q4_0-unquantized",
+  "runtime": {
+    "python": "python",
+    "vllm": "vllm",
+    "vllm_version": "0.19.1",
+    "transformers_version": "5.7.0",
+    "evalscope_version": "1.8.1"
+  }
+}

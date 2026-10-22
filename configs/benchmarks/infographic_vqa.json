@@ -1,0 +1,41 @@
+{
+  "benchmark_id": "infographic_vqa",
+  "suite_level": "L2",
+  "status": "locked",
+  "approved_for_paired_ple": true,
+  "official_reproduction": false,
+  "driver": "evalscope_api",
+  "protocol": {
+    "protocol_id": "infovqa_lmms_prompt_gemma4_aligned_v1",
+    "dataset": "InfographicVQA",
+    "split": "validation",
+    "n": 2801,
+    "few_shot": 0,
+    "prompt": "{question}\\nAnswer the question using a single word or phrase.",
+    "image_before_text": true,
+    "max_visual_soft_tokens": 1120,
+    "thinking": true,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "seed": 42,
+    "max_new_tokens": 4096,
+    "request_n": 1,
+    "best_of": 1,
+    "attempt_aggregation": "ANLS_mean",
+    "scorer": "original ANLS"
+  },
+  "runtime": {
+    "kind": "vision",
+    "max_model_len": 12288,
+    "max_num_seqs": 16,
+    "max_images": 1
+  },
+  "evalscope": {
+    "dataset": "infovqa",
+    "dataset_hub": "modelscope",
+    "override": "infovqa_lmms_eval",
+    "dataset_args": {},
+    "eval_batch_size": 8
+  }
+}

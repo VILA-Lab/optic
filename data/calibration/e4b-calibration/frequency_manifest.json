@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "records": [
+    {
+      "corpus_tag": "wikitext2_train_calibration",
+      "path": "data/calibration/e4b-calibration/calibration_text.txt",
+      "sha256": "0aeb648a5a61f7acea0bc3db2925142a2211ed48511c370d7169b6198bd948de",
+      "source": {
+        "evidence_role": "calibration_fitting_only",
+        "name": "Salesforce/wikitext wikitext-2-raw-v1 train",
+        "revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+        "token_offsets": [
+          0,
+          262144
+        ]
+      },
+      "tokenizer_tokens": 262144
+    }
+  ]
+}

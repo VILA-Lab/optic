@@ -1,0 +1,15 @@
+{
+  "method_id": "dense",
+  "label": "Original BF16 PLE",
+  "classification": "dense_reference",
+  "data_access_regime": "reference",
+  "ratio_bucket": "dense",
+  "capability_mode": "checkpoint_dense",
+  "reconstruction_path": null,
+  "reconstruction_sha256": null,
+  "compressed_artifact_path": null,
+  "compressed_artifact_sha256": null,
+  "ple_resident_bytes": 5637144576,
+  "ple_compression_ratio": 1.0,
+  "seed": null
+}

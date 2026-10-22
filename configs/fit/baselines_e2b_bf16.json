@@ -1,0 +1,105 @@
+{
+  "schema_version": "ple-baseline-matrix-v1",
+  "status": "fixed",
+  "seed": 0,
+  "protocol_lock": "configs/evaluation/protocol.json",
+  "output_root": "results/original-bf16-e2b-baseline-matrix",
+  "state_root": "state/original-bf16-e2b-baseline-matrix",
+  "collection_root": "receipts/original-bf16-e2b-baseline-matrix",
+  "selected_models": [
+    "e2b"
+  ],
+  "selected_methods": [
+    "pq",
+    "rvq",
+    "opq_parametric",
+    "low_rank_svd"
+  ],
+  "selected_ratios": [
+    100
+  ],
+  "models": {
+    "e2b": {
+      "num_layers": 35,
+      "d_ple": 256,
+      "vocab_size": 262144,
+      "dense_ple_bytes": 4697620480,
+      "parent_model_config": "configs/models/e2b_bf16.json",
+      "parent_weights": "<MODEL_DIR>/gemma-4-E2B-it-b446025c61ecea876162774ee247706056963aba/model.safetensors",
+      "evaluation_model_config": "configs/models/e2b_bf16.json",
+      "dense_reference_method_key": "dense_gemma4_e2b_it",
+      "low_rank": {
+        "100": 173
+      }
+    }
+  },
+  "methods": {
+    "pq": {
+      "publication_name": "Product Quantization (PQ) adapted to PLE",
+      "classification": "external_baseline",
+      "format_id": "packed_pq_npz",
+      "builder": "builders/baselines/baseline_packed_pq.py",
+      "method_key_template": "original_bf16_e2b_pq_r{ratio}_seed0",
+      "artifact_root_template": "artifacts/original-bf16-e2b-baseline-matrix/pq/r{ratio}/seed0",
+      "reconstruction_template": "<SCRATCH_DIR>/original-bf16-e2b-baseline-matrix/pq/r{ratio}/seed0/dense_ple_reconstruction.safetensors",
+      "method_config_template": "configs/methods/original_bf16_e2b_pq_r{ratio}_seed0.json",
+      "ratios": {
+        "100": {
+          "num_subspaces": 4,
+          "clusters": 1024,
+          "iterations": 8
+        }
+      }
+    },
+    "rvq": {
+      "publication_name": "Greedy residual vector quantization (RVQ) adapted to PLE",
+      "classification": "external_baseline",
+      "format_id": "residual_vq_npz",
+      "builder": "builders/baselines/baseline_residual_vq.py",
+      "method_key_template": "original_bf16_e2b_rvq_r{ratio}_seed0",
+      "artifact_root_template": "artifacts/original-bf16-e2b-baseline-matrix/rvq/r{ratio}/seed0",
+      "reconstruction_template": "<SCRATCH_DIR>/original-bf16-e2b-baseline-matrix/rvq/r{ratio}/seed0/dense_ple_reconstruction.safetensors",
+      "method_config_template": "configs/methods/original_bf16_e2b_rvq_r{ratio}_seed0.json",
+      "ratios": {
+        "100": {
+          "codebooks": 5,
+          "clusters": 256,
+          "iterations": 8
+        }
+      }
+    },
+    "opq_parametric": {
+      "publication_name": "Parametric optimized product quantization (OPQ-P) adapted to PLE",
+      "classification": "external_baseline",
+      "format_id": "parametric_opq_npz",
+      "builder": "scripts/build_opq.py",
+      "method_key_template": "original_bf16_e2b_opq_parametric_r{ratio}_seed0",
+      "artifact_root_template": "artifacts/original-bf16-e2b-baseline-matrix/opq_parametric/r{ratio}/seed0",
+      "reconstruction_template": "<SCRATCH_DIR>/original-bf16-e2b-baseline-matrix/opq_parametric/r{ratio}/seed0/dense_ple_reconstruction.safetensors",
+      "method_config_template": "configs/methods/original_bf16_e2b_opq_parametric_r{ratio}_seed0.json",
+      "ratios": {
+        "100": {
+          "num_subspaces": 4,
+          "clusters": 1024,
+          "iterations": 8
+        }
+      }
+    },
+    "low_rank_svd": {
+      "publication_name": "Post-hoc INT8 randomized low-rank SVD adapted to PLE",
+      "classification": "adapted_baseline",
+      "format_id": "quant_lowrank_factor_npz",
+      "builder": "builders/baselines/baseline_quant_lowrank_factor.py",
+      "method_key_template": "original_bf16_e2b_low_rank_svd_r{ratio}_seed0",
+      "artifact_root_template": "artifacts/original-bf16-e2b-baseline-matrix/low_rank_svd/r{ratio}/seed0",
+      "reconstruction_template": "<SCRATCH_DIR>/original-bf16-e2b-baseline-matrix/low_rank_svd/r{ratio}/seed0/dense_ple_reconstruction.safetensors",
+      "method_config_template": "configs/methods/original_bf16_e2b_low_rank_svd_r{ratio}_seed0.json",
+      "power_iterations": 4,
+      "oversample": 16
+    }
+  },
+  "storage": {
+    "maximum_concurrent_dense_capability_materializations": 4,
+    "external_download_bytes": 0
+  }
+}

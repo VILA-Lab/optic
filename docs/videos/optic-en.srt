@@ -1,0 +1,95 @@
+1
+00:00:01,200 --> 00:00:08,618
+Embedding capacity is scaling alongside Transformer computation, making high compression rates increasingly useful.
+
+2
+00:00:09,200 --> 00:00:22,214
+E2B and E4B are two models in the Gemma 4 family. PLE accounts for 45.8% and 35.2% of their parameters.
+
+3
+00:00:22,800 --> 00:00:28,217
+PLE stores a d-dimensional vector for each token at each decoder layer.
+
+4
+00:00:28,333 --> 00:00:31,028
+A token's vectors can differ across layers.
+
+5
+00:00:32,533 --> 00:00:37,786
+OPTIC compresses this V by L by d tensor, keeping the backbone fixed.
+
+6
+00:00:37,899 --> 00:00:42,675
+A fixed index budget per token is split across L independent layer codes.
+
+7
+00:00:42,799 --> 00:00:47,895
+OPTIC pools that budget into one larger code tuple, shared across layers.
+
+8
+00:00:47,999 --> 00:00:57,416
+Layer-specific decoders preserve layer differences. All V tokens share each decoder, so its storage is independent of V.
+
+9
+00:00:57,532 --> 00:01:00,864
+Each index selects a codeword from its group's codebook.
+
+10
+00:01:00,965 --> 00:01:04,145
+The selected codewords are reused at every layer.
+
+11
+00:01:04,265 --> 00:01:13,122
+Concatenating M codewords of width d_c gives a latent of width Z = M d_c.
+
+12
+00:01:13,232 --> 00:01:19,846
+Each layer reconstructs its PLE vector with an affine decoder: A times z, plus b.
+
+13
+00:01:19,965 --> 00:01:28,022
+The latent width Z can exceed d; each layer can still use a full-rank decoder.
+
+14
+00:01:28,132 --> 00:01:32,592
+Every layer uses the same latent with its own decoder weights and bias.
+
+15
+00:01:32,798 --> 00:01:39,254
+The model uses a PLE vector through a context-dependent gate and a layer-specific output projection.
+
+16
+00:01:39,365 --> 00:01:45,338
+OPTIC fits the projected contribution, before normalization and residual addition.
+
+17
+00:01:45,465 --> 00:01:52,640
+Compare the original and reconstructed contributions under the same cached gates and frozen projections.
+
+18
+00:01:52,765 --> 00:01:58,424
+Fit the shared codebooks and layer decoders to minimize their mean squared difference.
+
+19
+00:01:58,565 --> 00:02:05,023
+With indices fixed, optimize codebooks, decoder weights and biases under the output-path loss.
+
+20
+00:02:05,131 --> 00:02:11,670
+Then fix those parameters and reassign indices group by group, using a path-derived average metric.
+
+21
+00:02:11,798 --> 00:02:23,932
+E4B uses 161 eight-bit indices per token, forming a 644-dimensional latent for 42 layers, each producing 256 coordinates.
+
+22
+00:02:24,048 --> 00:02:38,745
+Including codes, codebooks and decoders, resident PLE storage falls from 5.64 GB to 56.4 MB: about 100 times smaller.
+
+23
+00:02:38,865 --> 00:02:47,884
+Performance remains close to the original: 97.8% aggregate retention across seven benchmarks on BF16 E4B.
+
+24
+00:02:48,015 --> 00:02:55,672
+Inference decodes only the current tokens. At the same cache size, inference time is essentially unchanged.

@@ -1,0 +1,31 @@
+{
+  "method_id": "frequency_tiered_optic_e4b_w4a16_r100",
+  "label": "Frequency-tiered OPTIC",
+  "publication_name": "Frequency-tiered OPTIC",
+  "classification": "our_method",
+  "method_family": "cross_layer_latent_vq",
+  "rate_allocation": "token_frequency_tiered",
+  "composition_role": "composition",
+  "data_access_regime": "fixed_decontaminated_broad_v2_calibration_and_checkpoint_tokenizer_rows",
+  "ratio_bucket": "r100",
+  "retention_reference_method_key": "official_gemma4_e4b_it_qat_w4a16_ct",
+  "capability_mode": "dense_reconstruction_injection",
+  "reconstruction_path": "<SCRATCH_DIR>/ple-e4b-qat-parent-frequency-tiered-optic-r100-capability-v1/dense-ple-reconstruction.safetensors",
+  "reconstruction_sha256": null,
+  "compressed_artifact_path": "<SCRATCH_DIR>/ple-e4b-qat-parent-frequency-tiered-optic-r100-finalized-v1/seed0/compressed_ple.npz",
+  "compressed_artifact_sha256": "b085a5440f77decc8f54e18445ebe467d4ffd725a7ed2f9426cea83724de0164",
+  "compressed_artifact_file_bytes": 56383212,
+  "ple_resident_bytes": 56371428,
+  "ple_compression_ratio": 100.00003150532217,
+  "ple_shape": [
+    262144,
+    10752
+  ],
+  "source_model_revision": "476025a01dbf99361c062bbeca3d6a76bb4c4566",
+  "build_config_path": "configs/fit/tiered_optic_e4b_w4a16.json",
+  "builder_path": "scripts/finalize_tiered_optic.py",
+  "roundtrip_receipt_path": "artifacts/e4b-qat-parent-frequency-tiered-optic-r100/seed0/artifact_bound_roundtrip_receipt.json",
+  "roundtrip_atol": 0.0,
+  "seed": 0,
+  "builder_sha256": "9a4fb928aad8785c087d232a6815acc033f55c574d8ed173bfee6145a95c5f35"
+}

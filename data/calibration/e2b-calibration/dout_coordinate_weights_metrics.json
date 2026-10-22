@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "shape": [
+    35,
+    256
+  ],
+  "dtype": "float32",
+  "formula": "mean_calibration(gate_fp16**2) * column_norm2(per_layer_projection_fp32), normalized to mean 1, floored at 0.02, renormalized to mean 1",
+  "coordinate_weight_floor": 0.02,
+  "min": 0.01998073048889637,
+  "max": 747.5787963867188,
+  "mean": 1.0,
+  "protocol_complete": true
+}

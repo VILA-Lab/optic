@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "protocol_id": "s7_e2b_wikitext2_train_calibration_gate_cache_v1",
+  "protocol_complete": true,
+  "gate_dtype": "float16",
+  "gate_shape": [
+    262144,
+    35,
+    256
+  ],
+  "nonfinite_count": 0,
+  "gate_min": -0.169921875,
+  "gate_max": 50.0,
+  "gate_mean_square": 2.0627188682556152
+}

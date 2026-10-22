@@ -1,0 +1,112 @@
+{
+  "schema_version": "optic-fit-v1",
+  "status": "fixed",
+  "protocol_id": "e4b_qat_parent_for_w4a16_r100_optic_seed0",
+  "method_full_name": "OPTIC",
+  "training_input_mode": "natural_model_rows_special",
+  "model": {
+    "identifier": "google/gemma-4-E4B-it-qat-q4_0-unquantized",
+    "revision": "476025a01dbf99361c062bbeca3d6a76bb4c4566",
+    "weights": "<MODEL_DIR>/gemma-4-E4B-it-qat-q4_0-unquantized-476025a01dbf99361c062bbeca3d6a76bb4c4566/model.safetensors",
+    "weights_sha256": "ad8ef515194b15ab13b6f98d54d37652b691c9a2c787cdf7ed5f951f5ed2c7fa",
+    "tokenizer_snapshot": "<MODEL_DIR>/gemma-4-E4B-it-qat-q4_0-unquantized-476025a01dbf99361c062bbeca3d6a76bb4c4566",
+    "vocab_size": 262144,
+    "num_layers": 42,
+    "d_ple": 256
+  },
+  "fit_inputs": {
+    "gate_file": "<SCRATCH_DIR>/ple-e4b-qat-parent-broad-v2-gate-cache-v1/dout_gate_cache_layer_major_f16.bin",
+    "gate_file_sha256": "21c1e64724224272f4ab5e583c9bc8849556da9a118c7d1baa0c3f98049b6bb9",
+    "gate_manifest": "<SCRATCH_DIR>/ple-e4b-qat-parent-broad-v2-gate-cache-v1/dout_gate_cache_config.json",
+    "gate_manifest_sha256": "302613cd3932d5503e91a9b5dd75cfe146f06a50f919fb8a180618dc83e05545",
+    "token_manifest": "artifacts/r100/calibration-cache/broad-v2-coverage/calibration_token_manifest.json",
+    "token_manifest_sha256": "b716209fe6a2a15ec3a4184add8a05ef9c637fcdec3f3b6895b78f8e360062c5",
+    "natural_token_file_sha256": "a85690e97c1d48731353b5883e5422d210e4f56cc1df6a437a97eb664f9c3ada",
+    "complete_tokenizer_row_file_sha256": "21b9bf484e8bb6ca346d2cd113f24594cadb15c31c3e6ea4bd99897b1e728282",
+    "natural_positions": 786432,
+    "natural_unique_token_ids": 136038,
+    "natural_unique_token_fraction": 0.5189437866210938,
+    "runtime_token_scale": 11.313708498984761
+  },
+  "core_builder": {
+    "path": "builders/methods/optic.py",
+    "sha256": "a9f88716c26f1ebb043ed3c28e60264ca9f44ff264acf5a6117d26addaec478a"
+  },
+  "shared_recipe": {
+    "latent_dim": 644,
+    "n_groups": 161,
+    "codebook_size": 256,
+    "group_dim_allocation": "eigenvalue_balanced",
+    "alternations": 10,
+    "steps_per_alternation": 500,
+    "optimizer_steps": 5000,
+    "assignment_icd_sweeps": 2,
+    "assignment_ridge": 1e-08,
+    "assignment_chunk_size": 65536,
+    "dead_code_min_usage": 1,
+    "kmeans_iterations": 25,
+    "metric_eigenvalue_floor": 1e-06,
+    "learning_rate": 0.0003,
+    "lr_schedule": "constant",
+    "batch_size": 8192,
+    "heldout_eval_size": 8192,
+    "heldout_eval_seed": 1,
+    "heldout_eval_interval_steps": 100,
+    "resident_roundtrip_atol": 0.002,
+    "seed": 0,
+    "expected_resident_bytes": 56404992,
+    "expected_compression_ratio": 99.94052611513534
+  },
+  "variants": {
+    "natural_model_rows_special": {
+      "description": "The broad natural contexts plus one identity-gated model-only row for every tokenizer ID and a fixed tokenizer-declared special-token stratum.",
+      "complete_tokenizer_row_positions": 262144,
+      "special_token_ids": [
+        2,
+        1,
+        3,
+        0,
+        4,
+        258881,
+        256000,
+        255999,
+        258883,
+        101,
+        258882,
+        106,
+        52,
+        49,
+        47,
+        51,
+        258880,
+        100,
+        105,
+        48,
+        46,
+        50,
+        98,
+        258884
+      ],
+      "repetitions_per_special_token": 2300,
+      "special_token_positions": 55200,
+      "special_token_sample_fraction": 0.05001014698634505,
+      "synthetic_gate": "all-ones vector under the fixed per-layer output projection",
+      "total_training_positions": 1103776
+    }
+  },
+  "reproducibility": {
+    "fit_seed": 0,
+    "heldout_split_seed": 1,
+    "deterministic_algorithms": true,
+    "cublas_workspace_config": ":4096:8",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": true,
+    "allow_tf32": false
+  },
+  "storage": {
+    "output_root": "artifacts/optic"
+  },
+  "output": {
+    "directory": "artifacts/optic/e4b-qat-parent-for-w4a16-r100-seed0"
+  }
+}

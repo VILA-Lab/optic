@@ -1,0 +1,48 @@
+{
+  "benchmark_id": "l1_quality_bundle",
+  "suite_level": "L1",
+  "status": "locked",
+  "approved_for_paired_ple": true,
+  "official_reproduction": false,
+  "driver": "l1_bundle",
+  "protocol": {
+    "protocol_id": "gemma4_ple_l1_wt2_piqa_gsm8k8_v1",
+    "wikitext": {
+      "path": "data/request-sets/wikitext-2-raw-v1-test.txt",
+      "sha256": "7f554825b93c55c9ecde32ff0aaa3ea2b96a69aed48954073e4d5a6ed409e919",
+      "tokens": 289661,
+      "segments": 142,
+      "segment_length": 2048,
+      "metric": "token_weighted_perplexity"
+    },
+    "piqa": {
+      "path": "data/request-sets/piqa-validation-complete-1838.jsonl",
+      "sha256": "95e4b7488d066a069844ddd16bc9a7fec1961fd8840e656ebbb6b91daf30e42a",
+      "split": "validation",
+      "n": 1838,
+      "few_shot": 0,
+      "metric": "raw_choice_log_likelihood_accuracy"
+    },
+    "gsm8k": {
+      "path": "data/request-sets/gsm8k-full-reference-1319.jsonl",
+      "sha256": "4764da6f33fa8527950723b1c9180dedbcfa9f67ceced054330355844ffe175e",
+      "fewshot_path": "data/request-sets/gsm8k-fewshot-train-first-8.jsonl",
+      "fewshot_sha256": "bf8be618fb3a0ac4804b85eb2ea531e2153d84ec10e374e0598303f749f1e00c",
+      "split": "test",
+      "n": 1319,
+      "few_shot": 8,
+      "thinking": false,
+      "temperature": 0.0,
+      "seed": 0,
+      "max_new_tokens": 8192,
+      "scorer": "evalscope.extract_answer+math_equal"
+    },
+    "request_n": 1,
+    "best_of": 1,
+    "attempt_aggregation": "all_items_micro_or_token_weighted"
+  },
+  "runtime": {
+    "max_model_len": 10240,
+    "gpu_memory_utilization": 0.85
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "interface_id": "gemma4_vlm_image_first_soft1120_v1",
+  "image_before_text": true,
+  "max_visual_soft_tokens": 1120,
+  "chat_template": "checkpoint_official",
+  "system_prompt": null,
+  "reasoning_parser": "gemma4",
+  "default_chat_template_kwargs": {
+    "enable_thinking": false
+  },
+  "per_request_thinking_required": true,
+  "score_final_channel_only": true,
+  "raw_reasoning_retained": true,
+  "image_limits_are_per_benchmark": true,
+  "silent_text_fallback_for_missing_image": false
+}

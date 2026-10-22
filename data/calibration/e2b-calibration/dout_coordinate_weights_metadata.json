@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "source_model_id": "google/gemma-4-E2B-it",
+  "source_model_revision": "3e22461f65e89153144f8adb70e3b8c2cc9845a7",
+  "source_checkpoint_sha256": "2db5482b20d746879bb3ef79b5203e9075a2e2b98f54ec7c2f281c1477ddc550",
+  "shape": [
+    35,
+    256
+  ],
+  "dtype": "float32",
+  "positions_total": 262144,
+  "input_gate_cache_protocol_id": "s7_e2b_wikitext2_train_calibration_gate_cache_v1",
+  "coordinate_weight_floor": 0.02,
+  "formula": "mean_calibration(gate_fp16**2) * column_norm2(per_layer_projection_fp32), normalized to mean 1, floored at 0.02, renormalized to mean 1",
+  "min": 0.01998073048889637,
+  "max": 747.5787963867188,
+  "mean": 1.0,
+  "projection_weight_shape": [
+    1536,
+    256
+  ],
+  "projection_weight_key_pattern": "model.language_model.layers.{layer}.per_layer_projection.weight",
+  "projection_weight_float32_concatenation_sha256": "e099bc21cfc17bbe06ad7aeaee2430aee0842562e963641a5d13584f3780b3ee",
+  "protocol_complete": true
+}

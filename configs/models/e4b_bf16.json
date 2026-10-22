@@ -1,0 +1,17 @@
+{
+  "model_id": "google/gemma-4-E4B-it",
+  "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+  "snapshot": "<CACHE_DIR>/huggingface/hub/models--google--gemma-4-E4B-it/snapshots/ee0ef6023621cff504d758262d4e04895a5af4a2",
+  "weight_file": "model.safetensors",
+  "weight_sha256": "cfbd3d2f1cd71bd471c37fe2bf8546d5028d41e5736f64e1ca6c6b8893125503",
+  "ple_dense_bytes": 5637144576,
+  "dtype": "bfloat16",
+  "served_model_name": "google/gemma-4-E4B-it",
+  "runtime": {
+    "python": "python",
+    "vllm": "vllm",
+    "vllm_version": "0.19.1",
+    "transformers_version": "5.7.0",
+    "evalscope_version": "1.8.1"
+  }
+}

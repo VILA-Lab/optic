@@ -1,0 +1,130 @@
+{
+  "schema_version": "w4a16-ple-baseline-matrix-v1",
+  "status": "fixed",
+  "seed": 0,
+  "protocol_lock": "configs/evaluation/protocol.json",
+  "models": {
+    "e2b": {
+      "num_layers": 35,
+      "d_ple": 256,
+      "vocab_size": 262144,
+      "dense_ple_bytes": 4697620480,
+      "parent_model_config": "configs/models/e2b_qat_parent.json",
+      "parent_weights": "<MODEL_DIR>/gemma-4-E2B-it-qat-q4_0-unquantized-6befbaca7398925921802abd1f277b495b78b738/model.safetensors",
+      "evaluation_model_config": "configs/models/e2b_w4a16.json",
+      "dense_reference_method_key": "official_gemma4_e2b_it_qat_w4a16_ct",
+      "low_rank": {
+        "20": 866,
+        "40": 433,
+        "100": 173
+      }
+    },
+    "e4b": {
+      "num_layers": 42,
+      "d_ple": 256,
+      "vocab_size": 262144,
+      "dense_ple_bytes": 5637144576,
+      "parent_model_config": "configs/models/e4b_qat_parent.json",
+      "parent_weights": "<MODEL_DIR>/gemma-4-E4B-it-qat-q4_0-unquantized-476025a01dbf99361c062bbeca3d6a76bb4c4566/model.safetensors",
+      "evaluation_model_config": "configs/models/e4b_w4a16.json",
+      "dense_reference_method_key": "official_gemma4_e4b_it_qat_w4a16_ct",
+      "low_rank": {
+        "20": 1032,
+        "40": 516,
+        "100": 206
+      }
+    }
+  },
+  "methods": {
+    "pq": {
+      "publication_name": "Flattened row-wise PQ PLE adaptation",
+      "classification": "external_baseline",
+      "format_id": "packed_pq_npz",
+      "builder": "builders/baselines/baseline_packed_pq.py",
+      "ratios": {
+        "20": {
+          "num_subspaces": 16,
+          "clusters": 4096,
+          "iterations": 8
+        },
+        "40": {
+          "num_subspaces": 8,
+          "clusters": 4096,
+          "iterations": 8
+        },
+        "100": {
+          "num_subspaces": 4,
+          "clusters": 1024,
+          "iterations": 8
+        }
+      }
+    },
+    "rvq": {
+      "publication_name": "Greedy RVQ PLE adaptation",
+      "classification": "external_baseline",
+      "format_id": "residual_vq_npz",
+      "builder": "builders/baselines/baseline_residual_vq.py",
+      "ratios": {
+        "20": {
+          "codebooks": 22,
+          "clusters": 512,
+          "iterations": 8
+        },
+        "40": {
+          "codebooks": 11,
+          "clusters": 512,
+          "iterations": 8
+        },
+        "100": {
+          "codebooks": 5,
+          "clusters": 256,
+          "iterations": 8
+        }
+      }
+    },
+    "opq_parametric": {
+      "publication_name": "Parametric OPQ (OPQ-P) PLE adaptation",
+      "classification": "external_baseline",
+      "format_id": "parametric_opq_npz",
+      "builder": "scripts/build_opq.py",
+      "ratios": {
+        "20": {
+          "num_subspaces": 16,
+          "clusters": 4096,
+          "iterations": 8
+        },
+        "40": {
+          "num_subspaces": 8,
+          "clusters": 4096,
+          "iterations": 8
+        },
+        "100": {
+          "num_subspaces": 4,
+          "clusters": 1024,
+          "iterations": 8
+        }
+      }
+    },
+    "low_rank_svd": {
+      "publication_name": "Post-hoc INT8 randomized low-rank SVD PLE adaptation",
+      "classification": "adapted_baseline",
+      "format_id": "quant_lowrank_factor_npz",
+      "builder": "builders/baselines/baseline_quant_lowrank_factor.py",
+      "power_iterations": 4,
+      "oversample": 16
+    }
+  },
+  "storage": {
+    "maximum_concurrent_dense_capability_materializations": 6,
+    "external_download_bytes": 0
+  },
+  "selected_methods": [
+    "pq",
+    "rvq",
+    "opq_parametric",
+    "low_rank_svd"
+  ],
+  "selected_ratios": [
+    100
+  ]
+}

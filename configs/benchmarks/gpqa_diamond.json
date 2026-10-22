@@ -1,0 +1,35 @@
+{
+  "benchmark_id": "gpqa_diamond",
+  "suite_level": "L2",
+  "status": "locked",
+  "approved_for_paired_ple": true,
+  "official_reproduction": false,
+  "driver": "gpqa_direct",
+  "protocol": {
+    "protocol_id": "simple_evals_gpqa_diamond_perm4_gemma4_v1",
+    "dataset": "Idavidrein/gpqa",
+    "config": "gpqa_diamond",
+    "revision": "633f5ee89ab8ad4522a9f850766b73f62147ffdd",
+    "split": "train",
+    "questions": 198,
+    "few_shot": 0,
+    "thinking": true,
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 64,
+    "seed": 0,
+    "max_new_tokens": 16384,
+    "option_permutations": 4,
+    "attempts": 792,
+    "request_n": 1,
+    "best_of": 1,
+    "attempt_aggregation": "micro_accuracy_over_all_792_attempts",
+    "parser": "strict Answer: A-D final-letter parser",
+    "parse_failure": "wrong"
+  },
+  "runtime": {
+    "kind": "text",
+    "max_model_len": 24576,
+    "max_num_seqs": 32
+  }
+}

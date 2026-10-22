@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "optic-ple"
+version = "0.1.0"
+description = "OPTIC: cross-layer latent vector quantization for per-layer embeddings"
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+ple-eval = "ple_eval.cli:main"
+
+[project.entry-points."vllm.general_plugins"]
+ple_eval_reconstruction = "ple_eval.vllm_plugin:register"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

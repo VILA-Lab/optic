@@ -1,0 +1,20 @@
+{
+  "schema_version": "ple-r100-e2b-original-bf16-gate-cache-v1",
+  "status": "fixed",
+  "protocol_id": "e2b_original_bf16_r100_decontaminated_calibration_786432_positions_v1",
+  "model": {
+    "identifier": "google/gemma-4-E2B-it",
+    "revision": "b446025c61ecea876162774ee247706056963aba",
+    "local_snapshot": "<MODEL_DIR>/gemma-4-E2B-it-b446025c61ecea876162774ee247706056963aba",
+    "num_layers": 35,
+    "d_ple": 256,
+    "dense_ple_bytes": 4697620480
+  },
+  "token_coverage": {
+    "vocab_size": 262144
+  },
+  "storage": {
+    "policy": "configs/storage.json",
+    "output_directory": "artifacts/r100/calibration-cache/broad-v2-coverage"
+  }
+}

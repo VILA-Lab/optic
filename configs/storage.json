@@ -1,0 +1,14 @@
+{
+  "filesystem_path": ".",
+  "minimum_available_bytes": 0,
+  "maximum_corpus_cache_bytes": null,
+  "maximum_new_output_bytes": null,
+  "corpus_cache_paths": [
+    "artifacts/r100/calibration-cache",
+    ".cache/r100-huggingface"
+  ],
+  "new_output_paths": [
+    "artifacts/r100",
+    "results/r100"
+  ]
+}

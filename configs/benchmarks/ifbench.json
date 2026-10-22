@@ -1,0 +1,41 @@
+{
+  "benchmark_id": "ifbench",
+  "suite_level": "L2",
+  "status": "locked",
+  "approved_for_paired_ple": true,
+  "official_reproduction": false,
+  "driver": "evalscope_api",
+  "protocol": {
+    "protocol_id": "ifbench_author_t0_gemma_thinking_v1",
+    "dataset": "allenai/IFBench",
+    "n": 300,
+    "few_shot": 0,
+    "thinking": true,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "seed": 42,
+    "max_new_tokens": 16384,
+    "request_n": 1,
+    "best_of": 1,
+    "attempt_aggregation": "prompt_level_loose_mean",
+    "scorer": "IFBench author verifier db69a6f05689830b0068b8f1529ebcfd2f3b164c",
+    "empty_or_cap_hit": "retained_and_scored"
+  },
+  "runtime": {
+    "kind": "text",
+    "max_model_len": 24576,
+    "max_num_seqs": 32
+  },
+  "evalscope": {
+    "dataset": "ifbench",
+    "dataset_hub": "modelscope",
+    "override": "none",
+    "dataset_args": {},
+    "eval_batch_size": 16
+  },
+  "postprocess": {
+    "kind": "ifbench_author",
+    "repository": ".external/IFBench",
+    "revision": "db69a6f05689830b0068b8f1529ebcfd2f3b164c"
+  }
+}

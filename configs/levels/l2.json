@@ -1,0 +1,11 @@
+{
+  "suite_level": "L2",
+  "description": "Reasoning, instruction following and document QA",
+  "benchmarks": [
+    "gpqa_diamond",
+    "aime_2026",
+    "ifbench",
+    "infographic_vqa",
+    "mmlu_redux_30x100"
+  ]
+}

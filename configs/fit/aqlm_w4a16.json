@@ -1,0 +1,122 @@
+{
+  "schema_version": "w4a16-aqlm-euclidean-beam-encoder-ple-r100-build-v1",
+  "status": "fixed",
+  "publication_name": "AQLM Euclidean beam-encoder PLE adaptation",
+  "classification": "adapted_baseline",
+  "data_access_regime": "model_weights_only",
+  "seed": 0,
+  "runtime": {
+    "python": "python",
+    "offline_only": true
+  },
+  "dependencies": {
+    "wrapper": {
+      "path": "scripts/build_aqlm_w4a16.py",
+      "sha256": "c2098e1f07f46f73fefc5a4a525dfb37dc4c0e1d2fe0c440809285582afe53a9"
+    },
+    "block_coordinate_refiner": {
+      "path": "scripts/refine_additive_quantization.py",
+      "sha256": "07d001d8d74036062ad55ed3e61eb4e054974be3cfe10c076037e076fbf6e30f"
+    },
+    "beam_encoder_builder": {
+      "path": "scripts/build_aqlm_e4b.py",
+      "sha256": "46042198387a313219cb3e7e8fe2dc99ce83e7face2c902bc07f7ec845876c18"
+    }
+  },
+  "author_code": {
+    "repository": "https://github.com/Vahe1994/AQLM",
+    "commit": "e79a896ed6656fe4ed06193d42d004e7d0bbdbb2",
+    "local_root": ".external/aqlm-beam-encoder-e79a896",
+    "scope": "author Euclidean beam encoder only",
+    "beam_search_path": ".external/aqlm-beam-encoder-e79a896/src/beam_search_l2.py",
+    "beam_search_sha256": "8dd39717dc9e44f7c8c8dba1426e616333878418dbe950ebeb7596c15848bdbf"
+  },
+  "recipe": {
+    "target_ratio": 100,
+    "codebooks": 5,
+    "clusters": 256,
+    "bits": 8,
+    "full_vector_group_size": 256,
+    "block_coordinate_sweeps": 2,
+    "block_coordinate_batch_size": 8192,
+    "author_beam_passes": 1,
+    "beam_size": 2,
+    "beam_row_chunk": 16384,
+    "author_chunk_size_bytes": 536870912,
+    "per_vector_scales": false,
+    "proposal_acceptance": "direct_unfiltered_author_output",
+    "retain_nonworsening_safeguard": false,
+    "calibration_corpus_used": false
+  },
+  "models": {
+    "e2b": {
+      "method_id": "aqlm_euclidean_beam_encoder_ple_w4a16_e2b_r100_seed0",
+      "num_layers": 35,
+      "ple_dimension": 256,
+      "vocab_size": 262144,
+      "dense_ple_bytes": 4697620480,
+      "matched_parent_child_logical_ple_sha256": "85fc13f18caa833a0fc694a2c16f7055cfd9c49144e97dcdd08f584a44675169",
+      "fit_source": {
+        "model_id": "google/gemma-4-E2B-it-qat-q4_0-unquantized",
+        "revision": "6befbaca7398925921802abd1f277b495b78b738",
+        "weights_path": "<MODEL_DIR>/gemma-4-E2B-it-qat-q4_0-unquantized-6befbaca7398925921802abd1f277b495b78b738/model.safetensors",
+        "model_config_path": "configs/models/e2b_qat_parent.json",
+        "model_config_sha256": "3f8dd109dc573f59a5883166c17ee6aa773a35119154f920fe19a2c5c9f8dac3"
+      },
+      "evaluation_target": {
+        "model_id": "google/gemma-4-E2B-it-qat-w4a16-ct",
+        "revision": "971342c08f607aa7779983f6b5289778b5d271a7",
+        "weights_path": "<MODEL_DIR>/gemma-4-E2B-it-qat-w4a16-ct-971342c08f607aa7779983f6b5289778b5d271a7/model.safetensors",
+        "model_config_path": "configs/models/e2b_w4a16.json",
+        "model_config_sha256": "27b31ffc06a624ee266fea324ad34f6b94b16e6221d0d23630ce02a7bf08cc65",
+        "dense_reference_method_key": "official_gemma4_e2b_it_qat_w4a16_ct"
+      },
+      "rvq_initializer": {
+        "method_id": "w4a16_e2b_rvq_r100_seed0",
+        "method_config_path": "configs/methods/w4a16_e2b_rvq_r100_seed0.json",
+        "method_config_sha256": "4c2c002ab249e85fed4558c25c3ee459504afd3ddfae05ac0b9966f6337ab695",
+        "compact_path": "artifacts/w4a16-baseline-matrix/e2b/rvq/r100/seed0/compressed_ple.npz",
+        "compact_sha256": "4da6b029878396c1459c2b0b9bc642417512f33fd0a715170271a1b45a61e394",
+        "metrics_path": "artifacts/w4a16-baseline-matrix/e2b/rvq/r100/seed0/summary.json",
+        "metrics_sha256": "cc0a89503236ed9fc3d6791b0532643ab16a376e783a0c32a8669908a78ae536"
+      }
+    },
+    "e4b": {
+      "method_id": "aqlm_euclidean_beam_encoder_ple_w4a16_e4b_r100_seed0",
+      "num_layers": 42,
+      "ple_dimension": 256,
+      "vocab_size": 262144,
+      "dense_ple_bytes": 5637144576,
+      "matched_parent_child_logical_ple_sha256": "89eabbbb1ab99c771c75c0757bb3b29cbe49b435dbe9b63f530c4a1e97dd81b7",
+      "fit_source": {
+        "model_id": "google/gemma-4-E4B-it-qat-q4_0-unquantized",
+        "revision": "476025a01dbf99361c062bbeca3d6a76bb4c4566",
+        "weights_path": "<MODEL_DIR>/gemma-4-E4B-it-qat-q4_0-unquantized-476025a01dbf99361c062bbeca3d6a76bb4c4566/model.safetensors",
+        "model_config_path": "configs/models/e4b_qat_parent.json",
+        "model_config_sha256": "821c0bba634caf82a24378eecf9a9644c88aab597787fe35c241ff91e9f66878"
+      },
+      "evaluation_target": {
+        "model_id": "google/gemma-4-E4B-it-qat-w4a16-ct",
+        "revision": "6cd26aaa2357fb2bad8c51699a7558a4d1a965bb",
+        "weights_path": "<MODEL_DIR>/gemma-4-E4B-it-qat-w4a16-ct-6cd26aaa2357fb2bad8c51699a7558a4d1a965bb/model.safetensors",
+        "model_config_path": "configs/models/e4b_w4a16.json",
+        "model_config_sha256": "f28e7b617e6c4ba4fc73a7a2800dbd99477e3a0e28f57ff7c10f67814b6f777f",
+        "dense_reference_method_key": "official_gemma4_e4b_it_qat_w4a16_ct"
+      },
+      "rvq_initializer": {
+        "method_id": "w4a16_e4b_rvq_r100_seed0",
+        "method_config_path": "configs/methods/w4a16_e4b_rvq_r100_seed0.json",
+        "method_config_sha256": "dbc024acd091e1989ad6cc6981e6c1b92c275e2d76b245e1831f90571e07e89c",
+        "compact_path": "artifacts/w4a16-baseline-matrix/e4b/rvq/r100/seed0/compressed_ple.npz",
+        "compact_sha256": "8786cd11e25afd4524749b0793d39e0c9c30115d72acb61d605f6efd28a8eda0",
+        "metrics_path": "artifacts/w4a16-baseline-matrix/e4b/rvq/r100/seed0/summary.json",
+        "metrics_sha256": "b336353ce6ec755891d93bfad9f436f87af0defb347b8dcfc73e9f8b85b6d429"
+      }
+    }
+  },
+  "artifacts": {
+    "persistent_root": "artifacts/w4a16-aqlm-euclidean-beam-encoder-ple-r100",
+    "ephemeral_root": "<SCRATCH_DIR>/w4a16-aqlm-euclidean-beam-encoder-ple-r100",
+    "method_config_root": "configs/methods"
+  }
+}

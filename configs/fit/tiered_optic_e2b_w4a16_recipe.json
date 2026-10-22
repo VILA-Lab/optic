@@ -1,0 +1,65 @@
+{
+  "schema_version": "frequency-tiered-optic-fit-recipe-v1",
+  "status": "fixed",
+  "method_name": "frequency-tiered OPTIC",
+  "model": {
+    "identifier": "google/gemma-4-E2B-it-qat-q4_0-unquantized",
+    "revision": "6befbaca7398925921802abd1f277b495b78b738",
+    "weights": "<MODEL_DIR>/gemma-4-E2B-it-qat-q4_0-unquantized-6befbaca7398925921802abd1f277b495b78b738/model.safetensors",
+    "tokenizer_snapshot": "<MODEL_DIR>/gemma-4-E2B-it-qat-q4_0-unquantized-6befbaca7398925921802abd1f277b495b78b738",
+    "vocab_size": 262144,
+    "num_layers": 35,
+    "d_ple": 256,
+    "dense_ple_bytes": 4697620480
+  },
+  "fit_inputs": {
+    "gate_file": {
+      "path": "<SCRATCH_DIR>/ple-e2b-qat-parent-broad-v2-gate-cache-v1/dout_gate_cache_layer_major_f16.bin"
+    },
+    "gate_manifest": {
+      "path": "<SCRATCH_DIR>/ple-e2b-qat-parent-broad-v2-gate-cache-v1/dout_gate_cache_config.json"
+    },
+    "natural_token_file": {
+      "path": "artifacts/r100/calibration-cache/broad-v2-coverage/calibration_token_ids_le_u32.bin",
+      "sha256": "a85690e97c1d48731353b5883e5422d210e4f56cc1df6a437a97eb664f9c3ada",
+      "positions": 786432
+    },
+    "complete_tokenizer_rows": {
+      "path": "artifacts/r100/calibration-cache/broad-v2-coverage/complete_tokenizer_row_ids_le_u32.bin",
+      "positions": 262144
+    },
+    "fit_only_frequency": {
+      "path": "artifacts/r100/frequency-tiered-token-counts-v1/fit_token_frequency_le_u64.bin",
+      "shape": [
+        262144
+      ],
+      "dtype": "uint64_little_endian",
+      "validation_sequences_used": false
+    },
+    "benchmark_inputs_used": false,
+    "l1_or_l2_inputs_used": false
+  },
+  "fit_recipe": {
+    "input_mode": "natural_model_rows_special",
+    "group_dim_allocation": "contiguous",
+    "alternations": 10,
+    "steps_per_alternation": 500,
+    "assignment_icd_sweeps": 2,
+    "assignment_ridge": 1e-08,
+    "assignment_chunk_size": 65536,
+    "dead_code_min_usage": 1,
+    "kmeans_iterations": 25,
+    "metric_eigenvalue_floor": 1e-06,
+    "learning_rate": 0.0003,
+    "batch_size": 8192,
+    "runtime_token_scale": 11.313708498984761,
+    "special_token_repetitions_each": 2300,
+    "special_token_positions": 55200,
+    "total_training_positions": 1103776,
+    "heldout_eval_size": 8192,
+    "heldout_eval_seed": 1,
+    "heldout_eval_interval_steps": 100,
+    "resident_roundtrip_atol": 0.002,
+    "seed": 0
+  }
+}

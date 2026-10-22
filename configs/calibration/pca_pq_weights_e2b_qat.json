@@ -1,0 +1,28 @@
+{
+  "schema_version": "e2b-qat-parent-broad-output-path-coordinate-weights-v1",
+  "status": "fixed",
+  "model": {
+    "identifier": "google/gemma-4-E2B-it-qat-q4_0-unquantized",
+    "revision": "6befbaca7398925921802abd1f277b495b78b738",
+    "weights": "<MODEL_DIR>/gemma-4-E2B-it-qat-q4_0-unquantized-6befbaca7398925921802abd1f277b495b78b738/model.safetensors",
+    "projection_key_pattern": "model.language_model.layers.{layer}.per_layer_projection.weight"
+  },
+  "gate_cache": {
+    "file": "<SCRATCH_DIR>/ple-e2b-qat-parent-broad-v2-gate-cache-v1/dout_gate_cache_layer_major_f16.bin",
+    "config": "<SCRATCH_DIR>/ple-e2b-qat-parent-broad-v2-gate-cache-v1/dout_gate_cache_config.json",
+    "sha256": "803d0f9a94474aef45db2983c26838a9665ed72518190a3b51f7a7c8ad0ffd04",
+    "shape": [
+      35,
+      786432,
+      256
+    ],
+    "dtype": "float16_little_endian"
+  },
+  "recipe": {
+    "coordinate_weight_floor": 0.02,
+    "formula": "mean_calibration(gate_fp16**2) * column_norm2(per_layer_projection_fp32), normalized to mean 1, floored at 0.02, renormalized to mean 1",
+    "benchmark_inputs_used": false,
+    "quality_results_used": false
+  },
+  "output_directory": "<SCRATCH_DIR>/e2b-qat-parent-broad-output-path-coordinate-weights-v1"
+}

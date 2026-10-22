@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "shape": [
+    42,
+    256
+  ],
+  "dtype": "float32",
+  "positions_total": 262144,
+  "input_gate_cache_protocol_id": "s6_wikitext2_train_calibration_gate_cache_v1",
+  "coordinate_weight_floor": 0.02,
+  "formula": "mean_calibration(gate^2) * per_layer_projection_column_norm2, normalized to mean 1, floored at 0.02, renormalized to mean 1",
+  "min": 0.019983883947134018,
+  "max": 5273.06787109375,
+  "mean": 1.0,
+  "projection_weight_key_pattern": "model.language_model.layers.{layer}.per_layer_projection.weight",
+  "projection_weight_float32_concatenation_sha256": "a00f0c0d9812ef150ce9a3fd6488594798c64ef0c9127085f8373d1d30da9252",
+  "protocol_complete": true
+}

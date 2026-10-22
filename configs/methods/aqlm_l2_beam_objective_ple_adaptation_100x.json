@@ -1,0 +1,40 @@
+{
+  "author_code": {
+    "beam_search_l2_sha256": "8dd39717dc9e44f7c8c8dba1426e616333878418dbe950ebeb7596c15848bdbf",
+    "commit": "e79a896ed6656fe4ed06193d42d004e7d0bbdbb2",
+    "local_root": ".external/AQLM",
+    "repository": "https://github.com/Vahe1994/AQLM"
+  },
+  "builder_path": "scripts/build_aqlm_e4b.py",
+  "builder_sha256": "46042198387a313219cb3e7e8fe2dc99ce83e7face2c902bc07f7ec845876c18",
+  "capability_mode": "dense_reconstruction_injection",
+  "classification": "adapted_baseline",
+  "compressed_artifact_file_bytes": 55710470,
+  "compressed_artifact_path": "artifacts/aqlm-l2-beam-objective-ple-adaptation-100x/seed0/compressed_ple.npz",
+  "compressed_artifact_sha256": "2f084073a2452c031e0a858129f9637a0ee4c36155bc524ef382ae16fe65f0dd",
+  "compression_ratio_scope": "all persistent online PLE tensors, excluding BF16 capability materialization",
+  "data_access_regime": "model_weights_only",
+  "format_id": "joint_refined_additive_vq_npz",
+  "initialization_artifact": {
+    "path": "artifacts/builds/e4b_exact_aq_r100_seed0/joint/compressed_ple.npz",
+    "role": "fixed_initialization_only_not_result_identity",
+    "sha256": "cc46afd4ef90a1650881fe6106bbd8fb1f2dafcd82cf69be349fce7f69603fc6"
+  },
+  "label": "AQLM Euclidean beam encoder",
+  "method_id": "aqlm_l2_beam_objective_ple_adaptation_100x",
+  "ple_compression_ratio": 101.19529411764705,
+  "ple_resident_bytes": 55705600,
+  "publication_name": "AQLM Euclidean beam-encoder PLE adaptation",
+  "publication_role": "adapted_baseline",
+  "ratio_bucket": "r100",
+  "reconstruction_path": "<SCRATCH_DIR>/aqlm-l2-beam-objective-ple-adaptation-100x/seed0/dense_ple_reconstruction.safetensors",
+  "reconstruction_sha256": "13ecc70f71bbab4be26c7a8956644f8806639b1880ace59a52786e469ada53d0",
+  "roundtrip_atol": 0.0,
+  "roundtrip_receipt_path": "artifacts/aqlm-l2-beam-objective-ple-adaptation-100x/seed0/requested_row_roundtrip_receipt_v2.json",
+  "roundtrip_receipt_sha256": "8515c85bc0d31001678e16c762ab6e720a6251997ee745eae49653f5d16f9263",
+  "schema_version": "ple-method-config-v1",
+  "seed": 0,
+  "status": "ready_for_evaluation",
+  "training_metrics_path": "artifacts/aqlm-l2-beam-objective-ple-adaptation-100x/seed0/summary.json",
+  "training_metrics_sha256": "43cc70d5ba46c4312a6ac7b0bcb6ee41042b118a721fbc2eda700f7232e00a37"
+}

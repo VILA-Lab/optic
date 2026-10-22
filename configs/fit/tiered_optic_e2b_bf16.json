@@ -1,0 +1,32 @@
+{
+  "schema_version": "frequency-adaptive-variable-rate-multiratio-build-v1",
+  "status": "fixed",
+  "method_name": "frequency-tiered OPTIC",
+  "target_ratio": 100,
+  "rate_geometry": {
+    "target_ratio": 100,
+    "num_layers": 35,
+    "d_ple": 256,
+    "base_group_count": 136,
+    "extra_group_count": 34,
+    "maximum_group_count": 170,
+    "maximum_latent_dim": 680,
+    "high_rate_ordinary_token_count": 110411,
+    "maximum_resident_bytes": 46976204,
+    "expected_resident_bytes": 46754082,
+    "raw_full_code_fit_resident_bytes": 57116160
+  },
+  "base_fit_recipe_path": "configs/fit/tiered_optic_e2b_bf16_recipe.json",
+  "fit_output_directory": "<SCRATCH_DIR>/ple-e2b-original-bf16-frequency-tiered-optic-r100-fit-v1/seed0",
+  "compact_output_root": "<SCRATCH_DIR>/ple-e2b-original-bf16-frequency-tiered-optic-r100-finalized-v1/seed0",
+  "capability_output_root": "<SCRATCH_DIR>/ple-e2b-original-bf16-frequency-tiered-optic-r100-capability-v1",
+  "require_source_lineage_metadata": true,
+  "compatible_runtime_targets": [
+    {
+      "identifier": "google/gemma-4-E2B-it",
+      "revision": "b446025c61ecea876162774ee247706056963aba",
+      "role": "fit_source_and_capability_target"
+    }
+  ],
+  "quality_evaluation_run": false
+}

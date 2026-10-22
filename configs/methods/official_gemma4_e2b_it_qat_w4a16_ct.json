@@ -1,0 +1,16 @@
+{
+  "method_id": "official_gemma4_e2b_it_qat_w4a16_ct",
+  "label": "Official Gemma 4 E2B IT QAT W4A16 compressed-tensors",
+  "classification": "dense_reference",
+  "data_access_regime": "official_checkpoint",
+  "ratio_bucket": "checkpoint_quantized",
+  "retention_reference_method_key": "official_gemma4_e2b_it_qat_parent",
+  "capability_mode": "checkpoint_dense",
+  "reconstruction_path": null,
+  "reconstruction_sha256": null,
+  "compressed_artifact_path": null,
+  "compressed_artifact_sha256": null,
+  "ple_resident_bytes": 4697620480,
+  "ple_compression_ratio": 1.0,
+  "seed": null
+}

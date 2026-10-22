@@ -1,0 +1,17 @@
+{
+  "schema_version": "ple-r100-e4b-qat-parent-gate-cache-v1",
+  "status": "fixed",
+  "protocol_id": "e4b_qat_parent_r100_decontaminated_calibration_786432_positions_v1",
+  "model": {
+    "identifier": "google/gemma-4-E4B-it-qat-q4_0-unquantized",
+    "revision": "476025a01dbf99361c062bbeca3d6a76bb4c4566",
+    "local_snapshot": "<MODEL_DIR>/gemma-4-E4B-it-qat-q4_0-unquantized-476025a01dbf99361c062bbeca3d6a76bb4c4566"
+  },
+  "token_coverage": {
+    "vocab_size": 262144
+  },
+  "storage": {
+    "policy": "configs/storage.json",
+    "output_directory": "artifacts/r100/calibration-cache/broad-v2-coverage"
+  }
+}

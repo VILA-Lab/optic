@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "protocol_id": "s7_e2b_wikitext2_train_calibration_gate_cache_v1",
+  "protocol_complete": true,
+  "source_checkpoint_sha256": "2db5482b20d746879bb3ef79b5203e9075a2e2b98f54ec7c2f281c1477ddc550",
+  "source_model_id": "google/gemma-4-E2B-it",
+  "source_model_revision": "3e22461f65e89153144f8adb70e3b8c2cc9845a7"
+}

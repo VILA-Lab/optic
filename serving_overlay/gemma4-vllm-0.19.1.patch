@@ -1,0 +1,65 @@
+--- a/vllm/model_executor/models/gemma4.py
++++ b/vllm/model_executor/models/gemma4.py
+@@ -314,9 +314,10 @@
+             prefix=f"{prefix}.o_proj",
+         )
+ 
+-        # Q/K norms: output = norm(x) * weight (learnable per-head scale)
++        # Q norm is used by every layer. K norm is allocated below only for
++        # layers that compute their own K values; KV-shared layers neither use
++        # nor store a per-layer K norm in official Gemma 4 QAT checkpoints.
+         self.q_norm = RMSNorm(self.head_dim, eps=config.rms_norm_eps)
+-        self.k_norm = RMSNorm(self.head_dim, eps=config.rms_norm_eps)
+         # V norm: no learnable scale (pure normalization only)
+         self.v_norm = RMSNorm(self.head_dim, eps=config.rms_norm_eps, has_weight=False)
+ 
+@@ -372,6 +373,12 @@
+                         f"{kv_shared_layer_index}.self_attn.attn"
+                     )
+ 
++        self.k_norm = (
++            None
++            if self.is_kv_shared_layer
++            else RMSNorm(self.head_dim, eps=config.rms_norm_eps)
++        )
++
+         self.rotary_emb = get_rope(
+             self.head_dim,
+             max_position=max_position_embeddings,
+@@ -411,6 +418,7 @@
+ 
+         if not self.is_kv_shared_layer:
+             # Non-shared: apply K norm + RoPE, V norm
++            assert self.k_norm is not None
+             k = k.unflatten(-1, (self.num_kv_heads, self.head_dim))
+             k = self.k_norm(k)
+             k = k.flatten(-2, -1)
+@@ -1513,6 +1521,12 @@
+         # model tree which is just "model.*".
+         def _weight_iterator():
+             use_k_eq_v = getattr(self.config, "attention_k_eq_v", False)
++            num_kv_shared_layers = getattr(self.config, "num_kv_shared_layers", 0)
++            first_kv_shared_layer_idx = (
++                self.config.num_hidden_layers - num_kv_shared_layers
++                if num_kv_shared_layers > 0
++                else self.config.num_hidden_layers
++            )
+             # Build set of k_eq_v layer indices (full_attention layers
+             # when attention_k_eq_v is enabled). These layers have k_proj
+             # but no v_proj in checkpoint — we duplicate k_proj as v_proj.
+@@ -1528,6 +1542,15 @@
+                 # Our model:  model.layers.X.*
+                 name = name.replace("language_model.", "")
+ 
++                # Original BF16 checkpoints retain per-layer K-norm weights
++                # for KV-sharing layers, while the runtime correctly reuses
++                # the earlier layer's normalized K and does not instantiate
++                # those parameters. Ignore only those provably unused keys.
++                if name.endswith(".self_attn.k_norm.weight"):
++                    match = re.search(r"layers\.(\d+)\.", name)
++                    if match and int(match.group(1)) >= first_kv_shared_layer_idx:
++                        continue
++
+                 # Remap new HF checkpoint naming to internal vLLM
+                 # naming: HF moved per_expert_scale to router and
+                 # renamed moe → experts in the MoE block.

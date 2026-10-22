@@ -1,0 +1,9 @@
+{
+  "method": "optic_e4b_bf16_r100",
+  "artifact": {
+    "repo_id": "zcahjl3/gemma-4-E4B-it-OPTIC-100x",
+    "revision": "5395e0c5a3eb97101b09f40516e069d63a33db21",
+    "filename": "compressed_ple.npz",
+    "sha256": "ce7073fe05e890a9c2fcb4e156567952cc5a3e2aaf846ad40425c668f450cacd"
+  }
+}

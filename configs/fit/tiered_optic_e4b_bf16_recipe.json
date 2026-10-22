@@ -1,0 +1,156 @@
+{
+  "schema_version": "frequency-adaptive-variable-rate-cross-layer-latent-vector-quantization-with-int8-decoding-and-exact-tokenizer-special-rows-fit-recipe-v1",
+  "status": "fixed",
+  "method_name": "frequency-adaptive variable-rate cross-layer latent vector quantization with int8 decoding and exact tokenizer-special rows",
+  "purpose": "Allocate 800 latent dimensions to the most frequently observed ordinary tokens while representing every other ordinary token with the first 640 dimensions and shared code zero in the final 40 groups.",
+  "model": {
+    "identifier": "google/gemma-4-E4B-it",
+    "revision": "ee0ef6023621cff504d758262d4e04895a5af4a2",
+    "weights": "<CACHE_DIR>/huggingface/hub/models--google--gemma-4-E4B-it/snapshots/ee0ef6023621cff504d758262d4e04895a5af4a2/model.safetensors",
+    "weights_sha256": "cfbd3d2f1cd71bd471c37fe2bf8546d5028d41e5736f64e1ca6c6b8893125503",
+    "tokenizer_snapshot": "<CACHE_DIR>/huggingface/hub/models--google--gemma-4-E4B-it/snapshots/ee0ef6023621cff504d758262d4e04895a5af4a2",
+    "vocab_size": 262144,
+    "num_layers": 42,
+    "d_ple": 256,
+    "dense_ple_bytes": 5637144576
+  },
+  "fit_inputs": {
+    "gate_file": {
+      "path": "artifacts/r100/calibration-cache/broad-v2-coverage/gate-cache-fp16-v2/dout_gate_cache_layer_major_f16.bin",
+      "sha256": "db6e467d8ae23b1b1c3461d217ed6e159916c4186f8b0a36036accf417762a53"
+    },
+    "gate_manifest": {
+      "path": "artifacts/r100/calibration-cache/broad-v2-coverage/gate-cache-fp16-v2/dout_gate_cache_config.json",
+      "sha256": "8f38af76f9c412ea035669f10646d76464e24dc4a94097805ff486b7a4884407"
+    },
+    "token_manifest": {
+      "path": "artifacts/r100/calibration-cache/broad-v2-coverage/calibration_token_manifest.json",
+      "sha256": "b716209fe6a2a15ec3a4184add8a05ef9c637fcdec3f3b6895b78f8e360062c5"
+    },
+    "natural_token_file": {
+      "path": "artifacts/r100/calibration-cache/broad-v2-coverage/calibration_token_ids_le_u32.bin",
+      "sha256": "a85690e97c1d48731353b5883e5422d210e4f56cc1df6a437a97eb664f9c3ada",
+      "positions": 786432
+    },
+    "complete_tokenizer_rows": {
+      "path": "artifacts/r100/calibration-cache/broad-v2-coverage/complete_tokenizer_row_ids_le_u32.bin",
+      "sha256": "21b9bf484e8bb6ca346d2cd113f24594cadb15c31c3e6ea4bd99897b1e728282",
+      "positions": 262144
+    },
+    "fit_only_frequency": {
+      "path": "artifacts/r100/frequency-tiered-token-counts-v1/fit_token_frequency_le_u64.bin",
+      "sha256": "7f19f1c0718dc485abef08c463f62f8c119b3d0522b552ffeb136ff6f4a74654",
+      "shape": [
+        262144
+      ],
+      "dtype": "uint64_little_endian",
+      "validation_sequences_used": false
+    },
+    "fit_split_manifest": {
+      "path": "artifacts/r100/frequency-tiered-token-counts-v1/token_count_manifest.json",
+      "sha256": "d8ddfd36602a16044c68d3206484d891303be3cbe33c4f8a802bc965dacb0806"
+    },
+    "benchmark_inputs_used": false,
+    "l1_or_l2_inputs_used": false
+  },
+  "rate_allocation": {
+    "base_group_count": 160,
+    "maximum_group_count": 200,
+    "extra_group_count": 40,
+    "group_dim": 4,
+    "base_latent_dim": 640,
+    "maximum_latent_dim": 800,
+    "codebook_size": 256,
+    "code_bits": 8,
+    "high_rate_ordinary_token_count": 110411,
+    "high_rate_selection": "exclude tokenizer.all_special_ids; sort by descending fit-only occurrence count then ascending token ID; select the first 110411; persist selected IDs in ascending token-ID order",
+    "low_rate_extra_code_constraint": "code ID zero in groups 160 through 199 during k-means, every ICD sweep, dead-code repair, and fixed-code Adam training",
+    "pca_group_order": "contiguous descending output-weighted PCA dimensions; groups 0 through 159 are universal and groups 160 through 199 are high-rate-only"
+  },
+  "fit_recipe": {
+    "input_mode": "natural_model_rows_special",
+    "group_dim_allocation": "contiguous",
+    "alternations": 10,
+    "steps_per_alternation": 500,
+    "assignment_icd_sweeps": 2,
+    "assignment_ridge": 1e-08,
+    "assignment_chunk_size": 65536,
+    "dead_code_min_usage": 1,
+    "kmeans_iterations": 25,
+    "metric_eigenvalue_floor": 1e-06,
+    "learning_rate": 0.0003,
+    "batch_size": 8192,
+    "runtime_token_scale": 11.313708498984761,
+    "special_token_repetitions_each": 2300,
+    "special_token_positions": 55200,
+    "total_training_positions": 1103776,
+    "heldout_eval_size": 8192,
+    "heldout_eval_seed": 1,
+    "heldout_eval_interval_steps": 100,
+    "resident_roundtrip_atol": 0.002,
+    "seed": 0,
+    "raw_full_code_fit_resident_bytes": 70063104,
+    "raw_full_code_fit_compression_ratio": 80.45810496777305
+  },
+  "strict_100x_online_schema": {
+    "base_codes_uint8_bytes": 41943040,
+    "high_rate_extra_codes_uint8_bytes": 4416440,
+    "sorted_high_rate_token_ids_uint32_bytes": 441644,
+    "codebooks_float16_bytes": 409600,
+    "decoder_weight_int8_bytes": 8601600,
+    "decoder_scales_float16_bytes": 21504,
+    "decoder_bias_float16_bytes": 21504,
+    "exact_24_special_rows_bfloat16_bytes": 516096,
+    "fixed_bytes_excluding_high_rate_codes_and_ids": 51513344,
+    "bytes_per_high_rate_token": 44,
+    "persistent_resident_bytes": 56371428,
+    "strict_100x_max_resident_bytes": 56371445,
+    "strict_100x_slack_bytes": 17,
+    "compression_ratio": 100.00003150532217,
+    "special_token_ids": [
+      2,
+      1,
+      3,
+      0,
+      4,
+      258881,
+      256000,
+      255999,
+      258883,
+      101,
+      258882,
+      106,
+      52,
+      49,
+      47,
+      51,
+      258880,
+      100,
+      105,
+      48,
+      46,
+      50,
+      98,
+      258884
+    ],
+    "special_token_id_storage": "immutable Python tuple and metadata only; no persistent ID tensor",
+    "dense_ple_or_dense_cache_persisted": false
+  },
+  "implementation": {
+    "core_builder": {
+      "path": "builders/methods/optic.py",
+      "sha256": "a9f88716c26f1ebb043ed3c28e60264ca9f44ff264acf5a6117d26addaec478a"
+    },
+    "broad_host_streaming_runner": {
+      "path": "scripts/build_optic_e4b_bf16.py",
+      "sha256": "3c7d84ad6988c34407fb3fbf7a87acb30255b43e5e824c5f44425f7cddebb6f5"
+    },
+    "fit_runner_path": "scripts/fit_tiered_optic_e4b.py"
+  },
+  "storage": {
+    "maximum_external_download_bytes": 0,
+    "fit_output_root": "<SCRATCH_DIR>/ple-frequency-adaptive-variable-rate-cross-layer-latent-vector-quantization-fit-v1",
+    "finalized_compact_output_root": "<SCRATCH_DIR>/ple-frequency-adaptive-variable-rate-cross-layer-latent-vector-quantization-finalized-v1",
+    "dense_reconstruction": "<SCRATCH_DIR> only"
+  }
+}
