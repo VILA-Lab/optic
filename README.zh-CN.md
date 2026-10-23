@@ -8,9 +8,18 @@
   <strong>Extreme Compression of Per-Layer Embeddings<br>via Cross-Layer Latent Vector Quantization</strong>
 </p>
 
-<!-- 论文公开后，将下方 arXiv 占位替换为 https://arxiv.org/abs/ARXIV_ID。 -->
 <p align="center">
-  <img src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b?style=flat-square" alt="论文：arXiv 即将发布">
+  Jiacheng Liu<sup>1</sup> · Yaxin Luo<sup>1</sup> · Xiaohan Zhao<sup>1</sup> · Peng Sun<sup>2,3</sup> · Xinyi Shang<sup>1,4</sup> · Jiacheng Cui<sup>1</sup> · Yonina C. Eldar<sup>5</sup> · Zhiqiang Shen<sup>1*</sup>
+</p>
+
+<p align="center">
+  <sup>1</sup>Mohamed bin Zayed University of Artificial Intelligence · <sup>2</sup>Westlake University · <sup>3</sup>Zhejiang University<br>
+  <sup>4</sup>University College London · <sup>5</sup>Weizmann Institute of Science<br>
+  <sup>*</sup>通讯作者
+</p>
+
+<p align="center">
+  <a href="https://arxiv.org/abs/2610.31309"><img src="https://img.shields.io/badge/arXiv-2610.31309-b31b1b?style=flat-square" alt="arXiv 论文"></a>
   <a href="https://huggingface.co/zcahjl3/gemma-4-E4B-it-OPTIC-100x"><img src="https://img.shields.io/badge/Hugging_Face-Model-ffd21e?style=flat-square" alt="Hugging Face 模型"></a>
   <a href="#method-video"><img src="https://img.shields.io/badge/Video-中文-58a6ff?style=flat-square" alt="中文方法视频"></a>
 </p>
@@ -42,6 +51,7 @@ https://github.com/user-attachments/assets/ef158c17-e889-428f-b76c-8acfc6d08d55
 - [拟合 OPTIC](#拟合-optic)
 - [代码结构](#代码结构)
 - [致谢](#致谢)
+- [引用](#引用)
 - [许可证](#许可证)
 
 ## 主要结果
@@ -176,12 +186,30 @@ ple-eval evaluate --gpus 0 --run-id optic-e4b
 
 ## 致谢
 
+本工作得到 MBZUAI-WIS Joint Program for Artificial Intelligence Research 的支持。
+
 评测使用了 [vLLM](https://github.com/vllm-project/vllm)、
 [EvalScope](https://github.com/modelscope/evalscope) 和官方
 [IFBench 评分器](https://github.com/allenai/IFBench)。AQLM 基线使用
 [作者的 beam-search 实现](https://github.com/Vahe1994/AQLM)。
 仓库中第三方代码与资源的来源及许可证见
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+## 引用
+
+使用 OPTIC 时请引用：
+
+```bibtex
+@misc{liu2026extremecompressionperlayerembeddings,
+      title={Extreme Compression of Per-Layer Embeddings via Cross-Layer Latent Vector Quantization},
+      author={Jiacheng Liu and Yaxin Luo and Xiaohan Zhao and Peng Sun and Xinyi Shang and Jiacheng Cui and Yonina C. Eldar and Zhiqiang Shen},
+      year={2026},
+      eprint={2610.31309},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2610.31309},
+}
+```
 
 ## 许可证
 

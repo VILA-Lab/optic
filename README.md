@@ -8,9 +8,18 @@
   <strong>Extreme Compression of Per-Layer Embeddings<br>via Cross-Layer Latent Vector Quantization</strong>
 </p>
 
-<!-- Replace the arXiv placeholder below with https://arxiv.org/abs/ARXIV_ID once the paper is available. -->
 <p align="center">
-  <img src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b?style=flat-square" alt="Paper: arXiv coming soon">
+  Jiacheng Liu<sup>1</sup> · Yaxin Luo<sup>1</sup> · Xiaohan Zhao<sup>1</sup> · Peng Sun<sup>2,3</sup> · Xinyi Shang<sup>1,4</sup> · Jiacheng Cui<sup>1</sup> · Yonina C. Eldar<sup>5</sup> · Zhiqiang Shen<sup>1*</sup>
+</p>
+
+<p align="center">
+  <sup>1</sup>Mohamed bin Zayed University of Artificial Intelligence · <sup>2</sup>Westlake University · <sup>3</sup>Zhejiang University<br>
+  <sup>4</sup>University College London · <sup>5</sup>Weizmann Institute of Science<br>
+  <sup>*</sup>Corresponding author
+</p>
+
+<p align="center">
+  <a href="https://arxiv.org/abs/2610.31309"><img src="https://img.shields.io/badge/arXiv-2610.31309-b31b1b?style=flat-square" alt="Paper on arXiv"></a>
   <a href="https://huggingface.co/zcahjl3/gemma-4-E4B-it-OPTIC-100x"><img src="https://img.shields.io/badge/Hugging_Face-Model-ffd21e?style=flat-square" alt="Hugging Face model"></a>
   <a href="#method-video"><img src="https://img.shields.io/badge/Video-English-58a6ff?style=flat-square" alt="English video explainer"></a>
 </p>
@@ -43,6 +52,7 @@ https://github.com/user-attachments/assets/1d71b26f-c5ac-42fa-abb4-6c4f748cbcdc
 - [Fit OPTIC](#fit-optic)
 - [Repository](#repository)
 - [Acknowledgements](#acknowledgements)
+- [Citation](#citation)
 - [License](#license)
 
 ## Highlights
@@ -187,12 +197,30 @@ The decoding entry point is
 
 ## Acknowledgements
 
+This work is supported by the MBZUAI-WIS Joint Program for Artificial Intelligence Research.
+
 The evaluation uses [vLLM](https://github.com/vllm-project/vllm),
 [EvalScope](https://github.com/modelscope/evalscope), and the official
 [IFBench scorer](https://github.com/allenai/IFBench). The AQLM baseline uses the
 [authors' beam-search implementation](https://github.com/Vahe1994/AQLM).
 Attribution and licenses for included third-party material are in
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Citation
+
+If you use OPTIC, please cite:
+
+```bibtex
+@misc{liu2026extremecompressionperlayerembeddings,
+      title={Extreme Compression of Per-Layer Embeddings via Cross-Layer Latent Vector Quantization},
+      author={Jiacheng Liu and Yaxin Luo and Xiaohan Zhao and Peng Sun and Xinyi Shang and Jiacheng Cui and Yonina C. Eldar and Zhiqiang Shen},
+      year={2026},
+      eprint={2610.31309},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2610.31309},
+}
+```
 
 ## License
 

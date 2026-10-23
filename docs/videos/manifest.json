@@ -45,8 +45,7 @@
   ],
   "method_source": {
     "title": "Extreme Compression of Per-Layer Embeddings via Cross-Layer Latent Vector Quantization",
-    "arxiv_url": null,
-    "status": "arXiv coming soon"
+    "arxiv_url": "https://arxiv.org/abs/2610.31309"
   },
   "synchronization": {
     "speech_start_delay_seconds": 0,
