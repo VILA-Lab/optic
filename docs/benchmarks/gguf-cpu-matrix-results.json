@@ -1,0 +1,1924 @@
+{
+  "schema_version": 1,
+  "hardware": "Intel Xeon Platinum 8352V",
+  "llama_cpp_base": "f7c01c5226cac1de1052c17920ff38cdefea0ae6",
+  "benchmark": "native llama bench; synthetic tokens, no sampling",
+  "plan": "gguf-cpu-matrix-plan.json",
+  "input_identities": [
+    {
+      "role": "binary",
+      "bytes": 62376,
+      "sha256": "f22a31a3fd9a997c9b78e6c65d3f55535f01c8889ad2739dce569a89710f1951"
+    },
+    {
+      "role": "official_gguf",
+      "bytes": 5154941280,
+      "sha256": "676c35070db6dbe52f93e9c864ee0fba4eddea94b9c875d9cb10daff453fbaee"
+    },
+    {
+      "role": "optic_gguf",
+      "bytes": 2899237408,
+      "sha256": "e68651a77b06155670690c69d0eedfb1566ee0af359ec03ee96fad2a33dd2014"
+    }
+  ],
+  "started_utc": "2026-10-29T16:43:47.804921+00:00",
+  "completed_utc": "2026-10-29T17:10:40.158812+00:00",
+  "host_condition": "Shared host with concurrent CPU, GPU and storage activity; physical cores and SMT siblings were not exclusive.",
+  "summary_statistic": "median of four process medians per model/case; two native samples per process",
+  "rows": [
+    {
+      "case": {
+        "id": "pp64-t36",
+        "prompt": 64,
+        "generation": 0,
+        "depth": 0,
+        "threads": 36
+      },
+      "processes": [
+        {
+          "block": 0,
+          "variant": "official",
+          "samples_ns": [
+            263983115,
+            259885417
+          ],
+          "samples_tps": [
+            242.44,
+            246.262
+          ],
+          "median_tps": 244.351,
+          "peak_rss_bytes": 5186924544,
+          "file_pages_by_numa_node": {
+            "1": 693468
+          },
+          "loadavg_before": "22.49 15.20 7.89",
+          "loadavg_after": "21.09 15.03 7.87",
+          "source_native_json_sha256": "923df220e064047ec1f0cc13c315f2d7f0369ea34653b5226613b867ea4448b1"
+        },
+        {
+          "block": 0,
+          "variant": "optic",
+          "samples_ns": [
+            257573328,
+            249877742
+          ],
+          "samples_tps": [
+            248.473,
+            256.125
+          ],
+          "median_tps": 252.299,
+          "peak_rss_bytes": 5257265152,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "21.09 15.03 7.87",
+          "loadavg_after": "22.76 15.47 8.06",
+          "source_native_json_sha256": "7a279c9824afbbae23d3cb741715be0b1f0418dd3e2eab5956150b45dbb6b7ac"
+        },
+        {
+          "block": 1,
+          "variant": "optic",
+          "samples_ns": [
+            248267637,
+            248673897
+          ],
+          "samples_tps": [
+            257.786,
+            257.365
+          ],
+          "median_tps": 257.57550000000003,
+          "peak_rss_bytes": 5257261056,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "20.56 24.29 17.35",
+          "loadavg_after": "20.56 24.29 17.35",
+          "source_native_json_sha256": "d1a403771d94dd491754f345d0afc88ca624c10b387430550bf75c885ae39035"
+        },
+        {
+          "block": 1,
+          "variant": "official",
+          "samples_ns": [
+            248129127,
+            248118913
+          ],
+          "samples_tps": [
+            257.93,
+            257.941
+          ],
+          "median_tps": 257.9355,
+          "peak_rss_bytes": 5183442944,
+          "file_pages_by_numa_node": {
+            "1": 693468
+          },
+          "loadavg_before": "20.56 24.29 17.35",
+          "loadavg_after": "19.15 23.93 17.27",
+          "source_native_json_sha256": "9ff3b15b6aaa9ac989989842fe53764cd3f35db1285a01a157569a11525154b0"
+        },
+        {
+          "block": 2,
+          "variant": "optic",
+          "samples_ns": [
+            252511467,
+            252703428
+          ],
+          "samples_tps": [
+            253.454,
+            253.261
+          ],
+          "median_tps": 253.35750000000002,
+          "peak_rss_bytes": 5257265152,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "19.77 22.79 18.44",
+          "loadavg_after": "18.51 22.48 18.37",
+          "source_native_json_sha256": "1ed5e738efa209057dc3d01d50938739a46108e213010fa03535fbe7ebb275f1"
+        },
+        {
+          "block": 2,
+          "variant": "official",
+          "samples_ns": [
+            248535413,
+            250209035
+          ],
+          "samples_tps": [
+            257.509,
+            255.786
+          ],
+          "median_tps": 256.64750000000004,
+          "peak_rss_bytes": 5185613824,
+          "file_pages_by_numa_node": {
+            "1": 693468
+          },
+          "loadavg_before": "18.51 22.48 18.37",
+          "loadavg_after": "19.99 22.72 18.47",
+          "source_native_json_sha256": "2662bddd581c13ea88deea92168d64e4906025f237edc34a82fcfb9443bf20ca"
+        },
+        {
+          "block": 3,
+          "variant": "official",
+          "samples_ns": [
+            245763655,
+            247086012
+          ],
+          "samples_tps": [
+            260.413,
+            259.019
+          ],
+          "median_tps": 259.716,
+          "peak_rss_bytes": 5184565248,
+          "file_pages_by_numa_node": {
+            "1": 693468
+          },
+          "loadavg_before": "34.39 30.03 22.92",
+          "loadavg_after": "34.67 30.16 23.00",
+          "source_native_json_sha256": "7d4c6bdb89c9851a18cfaaa724bf23c77519432f774b87b2b132c66924272018"
+        },
+        {
+          "block": 3,
+          "variant": "optic",
+          "samples_ns": [
+            247506690,
+            248037190
+          ],
+          "samples_tps": [
+            258.579,
+            258.026
+          ],
+          "median_tps": 258.3025,
+          "peak_rss_bytes": 5257048064,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "34.67 30.16 23.00",
+          "loadavg_after": "34.67 30.16 23.00",
+          "source_native_json_sha256": "500e0ae1b98adc7106c4f1aa41e5665e77ec3622f61ab65e5daa1faa80211150"
+        }
+      ],
+      "paired_optic_over_official": [
+        1.0325269796317593,
+        0.9986043022383505,
+        0.9871808609084444,
+        0.9945575166720572
+      ],
+      "official": {
+        "median_tps": 257.29150000000004,
+        "min_process_tps": 244.351,
+        "max_process_tps": 259.716,
+        "peak_rss_bytes": 5186924544
+      },
+      "optic": {
+        "median_tps": 255.46650000000002,
+        "min_process_tps": 252.299,
+        "max_process_tps": 258.3025,
+        "peak_rss_bytes": 5257265152
+      },
+      "median_paired_ratio": 0.9965809094552038
+    },
+    {
+      "case": {
+        "id": "pp512-t36",
+        "prompt": 512,
+        "generation": 0,
+        "depth": 0,
+        "threads": 36
+      },
+      "processes": [
+        {
+          "block": 0,
+          "variant": "optic",
+          "samples_ns": [
+            1894385918,
+            1896210494
+          ],
+          "samples_tps": [
+            270.272,
+            270.012
+          ],
+          "median_tps": 270.142,
+          "peak_rss_bytes": 5359489024,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "13.90 16.85 9.97",
+          "loadavg_after": "16.23 17.28 10.15",
+          "source_native_json_sha256": "e9b9df1bc45f37d821e4f0c11877e83bc2102c6a4f88d7863009b55147d943e1"
+        },
+        {
+          "block": 0,
+          "variant": "official",
+          "samples_ns": [
+            1897229925,
+            1906185418
+          ],
+          "samples_tps": [
+            269.867,
+            268.599
+          ],
+          "median_tps": 269.233,
+          "peak_rss_bytes": 5393346560,
+          "file_pages_by_numa_node": {},
+          "loadavg_before": "16.23 17.28 10.15",
+          "loadavg_after": "17.30 17.46 10.28",
+          "source_native_json_sha256": "731a43fdbf2fdf42959be0fefea2b62651ef45b62b254b70cebb8b8af9e9ebf8"
+        },
+        {
+          "block": 1,
+          "variant": "official",
+          "samples_ns": [
+            1939337714,
+            1945190059
+          ],
+          "samples_tps": [
+            264.008,
+            263.213
+          ],
+          "median_tps": 263.6105,
+          "peak_rss_bytes": 5388554240,
+          "file_pages_by_numa_node": {
+            "1": 716972
+          },
+          "loadavg_before": "32.08 26.43 17.52",
+          "loadavg_after": "30.42 26.28 17.57",
+          "source_native_json_sha256": "b24360ebea6b7aa36506ab0a1441104e32b035039007c334b5d004454b4138fe"
+        },
+        {
+          "block": 1,
+          "variant": "optic",
+          "samples_ns": [
+            1948425374,
+            1954643963
+          ],
+          "samples_tps": [
+            262.776,
+            261.94
+          ],
+          "median_tps": 262.358,
+          "peak_rss_bytes": 5358305280,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "30.42 26.28 17.57",
+          "loadavg_after": "31.02 26.47 17.68",
+          "source_native_json_sha256": "c6e3bfabce9b09b371ca8a4c6270cc107a2ac95243ae088994fc8ac2f077cb32"
+        },
+        {
+          "block": 2,
+          "variant": "official",
+          "samples_ns": [
+            1897926147,
+            1911881085
+          ],
+          "samples_tps": [
+            269.768,
+            267.799
+          ],
+          "median_tps": 268.7835,
+          "peak_rss_bytes": 5389697024,
+          "file_pages_by_numa_node": {
+            "1": 716972
+          },
+          "loadavg_before": "19.15 23.93 17.27",
+          "loadavg_after": "19.54 23.84 17.31",
+          "source_native_json_sha256": "452256f262787cb540919d6f7c5104d2cc6d7f946c3f2e4509521d7a50d6a292"
+        },
+        {
+          "block": 2,
+          "variant": "optic",
+          "samples_ns": [
+            1939105112,
+            1949924312
+          ],
+          "samples_tps": [
+            264.039,
+            262.574
+          ],
+          "median_tps": 263.3065,
+          "peak_rss_bytes": 5358321664,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "19.54 23.84 17.31",
+          "loadavg_after": "19.50 23.71 17.34",
+          "source_native_json_sha256": "5dbd90e4d3bb028c309c3372f5b98bd4a6b004e2876a00d1eb139d8b48180fd7"
+        },
+        {
+          "block": 3,
+          "variant": "optic",
+          "samples_ns": [
+            1939133740,
+            1948556312
+          ],
+          "samples_tps": [
+            264.035,
+            262.759
+          ],
+          "median_tps": 263.39700000000005,
+          "peak_rss_bytes": 5360676864,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "12.93 22.69 21.28",
+          "loadavg_after": "14.37 22.69 21.30",
+          "source_native_json_sha256": "846c28e3e14c0d5ef24bf055f07795748fba9a5feedaa6dbda4dae607b23eebd"
+        },
+        {
+          "block": 3,
+          "variant": "official",
+          "samples_ns": [
+            1981646271,
+            1979712014
+          ],
+          "samples_tps": [
+            258.371,
+            258.623
+          ],
+          "median_tps": 258.49699999999996,
+          "peak_rss_bytes": 5391073280,
+          "file_pages_by_numa_node": {
+            "1": 716972
+          },
+          "loadavg_before": "14.37 22.69 21.30",
+          "loadavg_after": "16.42 22.98 21.40",
+          "source_native_json_sha256": "c43798abd6563979ca3aa836467add84330a600d48184911a0e766cfa1f66239"
+        }
+      ],
+      "paired_optic_over_official": [
+        1.0033762577395786,
+        0.9952486718093551,
+        0.9796230051323835,
+        1.0189557325616936
+      ],
+      "official": {
+        "median_tps": 266.197,
+        "min_process_tps": 258.49699999999996,
+        "max_process_tps": 269.233,
+        "peak_rss_bytes": 5393346560
+      },
+      "optic": {
+        "median_tps": 263.35175000000004,
+        "min_process_tps": 262.358,
+        "max_process_tps": 270.142,
+        "peak_rss_bytes": 5360676864
+      },
+      "median_paired_ratio": 0.9993124647744669
+    },
+    {
+      "case": {
+        "id": "pp2048-t36",
+        "prompt": 2048,
+        "generation": 0,
+        "depth": 0,
+        "threads": 36
+      },
+      "processes": [
+        {
+          "block": 0,
+          "variant": "official",
+          "samples_ns": [
+            8559272876,
+            8607232997
+          ],
+          "samples_tps": [
+            239.273,
+            237.939
+          ],
+          "median_tps": 238.606,
+          "peak_rss_bytes": 5740179456,
+          "file_pages_by_numa_node": {
+            "1": 790668
+          },
+          "loadavg_before": "22.79 10.66 5.67",
+          "loadavg_after": "29.54 13.22 6.65",
+          "source_native_json_sha256": "c1e1b15034b6fd76390065072f6b39018854eeeb7858e42acb7e279c6f6a5fae"
+        },
+        {
+          "block": 0,
+          "variant": "optic",
+          "samples_ns": [
+            8656911653,
+            8658783051
+          ],
+          "samples_tps": [
+            236.574,
+            236.523
+          ],
+          "median_tps": 236.5485,
+          "peak_rss_bytes": 5407186944,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "27.65 13.10 6.65",
+          "loadavg_after": "32.92 15.52 7.62",
+          "source_native_json_sha256": "e6d23b2028f1f6991a36a3b60744a9f083cfc76e2fd008ff726b6bc12982321b"
+        },
+        {
+          "block": 1,
+          "variant": "optic",
+          "samples_ns": [
+            8566170847,
+            8558944297
+          ],
+          "samples_tps": [
+            239.08,
+            239.282
+          ],
+          "median_tps": 239.181,
+          "peak_rss_bytes": 5404299264,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "25.21 24.54 16.37",
+          "loadavg_after": "29.17 25.47 16.94",
+          "source_native_json_sha256": "2f8326d770dadec046a2154833117f009f60ea7c9ec136952a492ae07c26fcd7"
+        },
+        {
+          "block": 1,
+          "variant": "official",
+          "samples_ns": [
+            8547203348,
+            8537479573
+          ],
+          "samples_tps": [
+            239.611,
+            239.883
+          ],
+          "median_tps": 239.747,
+          "peak_rss_bytes": 5739134976,
+          "file_pages_by_numa_node": {
+            "1": 790653
+          },
+          "loadavg_before": "29.17 25.47 16.94",
+          "loadavg_after": "32.08 26.43 17.52",
+          "source_native_json_sha256": "bffe614eef9059d6cfd70eacb6bf404cbbfadcaf2852b85bc32cf528f66e1f51"
+        },
+        {
+          "block": 2,
+          "variant": "official",
+          "samples_ns": [
+            8550270318,
+            8517903342
+          ],
+          "samples_tps": [
+            239.525,
+            240.435
+          ],
+          "median_tps": 239.98000000000002,
+          "peak_rss_bytes": 5736697856,
+          "file_pages_by_numa_node": {
+            "1": 790653
+          },
+          "loadavg_before": "10.46 19.88 16.62",
+          "loadavg_after": "20.02 21.37 17.20",
+          "source_native_json_sha256": "2ab525632d2be876a715deb4255dbd755deea2c0d291a1a0b59a5315dd75bcf3"
+        },
+        {
+          "block": 2,
+          "variant": "optic",
+          "samples_ns": [
+            8702881065,
+            8519397360
+          ],
+          "samples_tps": [
+            235.324,
+            240.393
+          ],
+          "median_tps": 237.8585,
+          "peak_rss_bytes": 5406785536,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "20.02 21.37 17.20",
+          "loadavg_after": "25.79 22.55 17.72",
+          "source_native_json_sha256": "114fe52af0abae9609f70f58dbd89a2a9cb188ba37ace8b3cc512c891d8546de"
+        },
+        {
+          "block": 3,
+          "variant": "optic",
+          "samples_ns": [
+            8348407191,
+            8345205333
+          ],
+          "samples_tps": [
+            245.316,
+            245.41
+          ],
+          "median_tps": 245.363,
+          "peak_rss_bytes": 5407854592,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "32.87 26.15 20.16",
+          "loadavg_after": "34.52 27.07 20.62",
+          "source_native_json_sha256": "12075a4972741b8f2a1f6c353a386e2240e6b79cc75a8ada15dd6392e1b22e31"
+        },
+        {
+          "block": 3,
+          "variant": "official",
+          "samples_ns": [
+            8523797959,
+            8508429956
+          ],
+          "samples_tps": [
+            240.268,
+            240.702
+          ],
+          "median_tps": 240.485,
+          "peak_rss_bytes": 5739229184,
+          "file_pages_by_numa_node": {
+            "1": 790668
+          },
+          "loadavg_before": "34.52 27.07 20.62",
+          "loadavg_after": "34.27 27.63 21.01",
+          "source_native_json_sha256": "ffc7dacb8968cbd01237836d8f43276c1376c98a9a2b6699fe9b8dd6d609f6e5"
+        }
+      ],
+      "paired_optic_over_official": [
+        0.9913769980637536,
+        0.9976391779667733,
+        0.991159679973331,
+        1.0202840093976755
+      ],
+      "official": {
+        "median_tps": 239.86350000000002,
+        "min_process_tps": 238.606,
+        "max_process_tps": 240.485,
+        "peak_rss_bytes": 5740179456
+      },
+      "optic": {
+        "median_tps": 238.51975,
+        "min_process_tps": 236.5485,
+        "max_process_tps": 245.363,
+        "peak_rss_bytes": 5407854592
+      },
+      "median_paired_ratio": 0.9945080880152635
+    },
+    {
+      "case": {
+        "id": "tg128-d0-t36",
+        "prompt": 0,
+        "generation": 128,
+        "depth": 0,
+        "threads": 36
+      },
+      "processes": [
+        {
+          "block": 0,
+          "variant": "optic",
+          "samples_ns": [
+            4738930867,
+            4828307044
+          ],
+          "samples_tps": [
+            27.0103,
+            26.5103
+          ],
+          "median_tps": 26.7603,
+          "peak_rss_bytes": 5257240576,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "23.94 18.03 9.56",
+          "loadavg_after": "26.18 18.70 9.87",
+          "source_native_json_sha256": "bf6c9790abbc223f7a5c61e1231cb4c2c1ea71575c4f1c0178a3f8caa19b2108"
+        },
+        {
+          "block": 0,
+          "variant": "official",
+          "samples_ns": [
+            4877996571,
+            4868875375
+          ],
+          "samples_tps": [
+            26.2403,
+            26.2894
+          ],
+          "median_tps": 26.264850000000003,
+          "peak_rss_bytes": 5183320064,
+          "file_pages_by_numa_node": {
+            "1": 694604
+          },
+          "loadavg_before": "26.18 18.70 9.87",
+          "loadavg_after": "26.57 19.12 10.15",
+          "source_native_json_sha256": "22dc8daa63c796f328846993274091fe5b588f5a0f99bcac539faf74868c309a"
+        },
+        {
+          "block": 1,
+          "variant": "optic",
+          "samples_ns": [
+            4700556025,
+            4766244375
+          ],
+          "samples_tps": [
+            27.2308,
+            26.8555
+          ],
+          "median_tps": 27.043149999999997,
+          "peak_rss_bytes": 5257289728,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "20.66 23.80 15.92",
+          "loadavg_after": "22.52 24.02 16.12",
+          "source_native_json_sha256": "42aa3621df310de95ddb771ff15e40d812e61ac0d76745006d1db3593897376c"
+        },
+        {
+          "block": 1,
+          "variant": "official",
+          "samples_ns": [
+            4717087768,
+            4758955054
+          ],
+          "samples_tps": [
+            27.1354,
+            26.8967
+          ],
+          "median_tps": 27.01605,
+          "peak_rss_bytes": 5185560576,
+          "file_pages_by_numa_node": {
+            "1": 694684
+          },
+          "loadavg_before": "22.52 24.02 16.12",
+          "loadavg_after": "25.21 24.54 16.37",
+          "source_native_json_sha256": "0a10ac601f0c72913a72c45400cb707e8c371f65288b651361c14dd18697d8e8"
+        },
+        {
+          "block": 2,
+          "variant": "official",
+          "samples_ns": [
+            4711311792,
+            4743576965
+          ],
+          "samples_tps": [
+            27.1687,
+            26.9839
+          ],
+          "median_tps": 27.0763,
+          "peak_rss_bytes": 5181947904,
+          "file_pages_by_numa_node": {
+            "1": 694684
+          },
+          "loadavg_before": "19.99 22.72 18.47",
+          "loadavg_after": "22.75 23.23 18.67",
+          "source_native_json_sha256": "6bd66b3b10f056e89bb76872cac611c9b53e6e53b5d36c1242fa31c135a77d6e"
+        },
+        {
+          "block": 2,
+          "variant": "optic",
+          "samples_ns": [
+            4700295947,
+            4737738165
+          ],
+          "samples_tps": [
+            27.2323,
+            27.0171
+          ],
+          "median_tps": 27.124699999999997,
+          "peak_rss_bytes": 5257281536,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "22.75 23.23 18.67",
+          "loadavg_after": "21.03 22.82 18.62",
+          "source_native_json_sha256": "0bbdf774a346279ccee1ecad5b2f711ab4d7a4c27d2a604e0e2b8af62b681596"
+        },
+        {
+          "block": 3,
+          "variant": "official",
+          "samples_ns": [
+            4656694436,
+            4700819463
+          ],
+          "samples_tps": [
+            27.4873,
+            27.2293
+          ],
+          "median_tps": 27.3583,
+          "peak_rss_bytes": 5185417216,
+          "file_pages_by_numa_node": {
+            "1": 694684
+          },
+          "loadavg_before": "16.93 25.54 21.93",
+          "loadavg_after": "20.25 25.96 22.11",
+          "source_native_json_sha256": "8f483337848182c8988f7e532e0c05d0e48ddf44f22098616c3f9e21fa9a1962"
+        },
+        {
+          "block": 3,
+          "variant": "optic",
+          "samples_ns": [
+            4676434445,
+            4731706610
+          ],
+          "samples_tps": [
+            27.3713,
+            27.0516
+          ],
+          "median_tps": 27.21145,
+          "peak_rss_bytes": 5257240576,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "20.25 25.96 22.11",
+          "loadavg_after": "22.98 26.36 22.28",
+          "source_native_json_sha256": "af16ac2ab0fc26bbd9ed168179f6c97566ba763f8a7281902321c9f1d6066062"
+        }
+      ],
+      "paired_optic_over_official": [
+        1.018863614298197,
+        1.0010031074120753,
+        1.001787541133759,
+        0.9946323419218299
+      ],
+      "official": {
+        "median_tps": 27.046174999999998,
+        "min_process_tps": 26.264850000000003,
+        "max_process_tps": 27.3583,
+        "peak_rss_bytes": 5185560576
+      },
+      "optic": {
+        "median_tps": 27.083924999999997,
+        "min_process_tps": 26.7603,
+        "max_process_tps": 27.21145,
+        "peak_rss_bytes": 5257289728
+      },
+      "median_paired_ratio": 1.001395324272917
+    },
+    {
+      "case": {
+        "id": "tg128-d256-t36",
+        "prompt": 0,
+        "generation": 128,
+        "depth": 256,
+        "threads": 36
+      },
+      "processes": [
+        {
+          "block": 0,
+          "variant": "official",
+          "samples_ns": [
+            8022735514,
+            7609436619
+          ],
+          "samples_tps": [
+            15.9547,
+            16.8212
+          ],
+          "median_tps": 16.38795,
+          "peak_rss_bytes": 5289492480,
+          "file_pages_by_numa_node": {
+            "1": 699196
+          },
+          "loadavg_before": "8.08 6.54 4.18",
+          "loadavg_after": "18.27 8.97 5.03",
+          "source_native_json_sha256": "725fcb340febb89abe25ce3fa0b8b86222b463e06be14516c68386f5e6727856"
+        },
+        {
+          "block": 0,
+          "variant": "optic",
+          "samples_ns": [
+            7259800032,
+            7166974070
+          ],
+          "samples_tps": [
+            17.6313,
+            17.8597
+          ],
+          "median_tps": 17.7455,
+          "peak_rss_bytes": 5322813440,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "18.27 8.97 5.03",
+          "loadavg_after": "22.79 10.66 5.67",
+          "source_native_json_sha256": "bdd515fd422326a68178869160fe36ce43ea682f56392982c0f6666bdf26d216"
+        },
+        {
+          "block": 1,
+          "variant": "optic",
+          "samples_ns": [
+            4864093779,
+            4903819085
+          ],
+          "samples_tps": [
+            26.3153,
+            26.1021
+          ],
+          "median_tps": 26.2087,
+          "peak_rss_bytes": 5326442496,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "14.84 23.10 15.49",
+          "loadavg_after": "17.32 23.28 15.67",
+          "source_native_json_sha256": "af23fe0af43343d1520386d67b5d7998efa1a5a8d43347bdbc5c4c08641e0813"
+        },
+        {
+          "block": 1,
+          "variant": "official",
+          "samples_ns": [
+            4884714493,
+            4887464747
+          ],
+          "samples_tps": [
+            26.2042,
+            26.1894
+          ],
+          "median_tps": 26.1968,
+          "peak_rss_bytes": 5284642816,
+          "file_pages_by_numa_node": {
+            "1": 699180
+          },
+          "loadavg_before": "17.32 23.28 15.67",
+          "loadavg_after": "20.66 23.80 15.92",
+          "source_native_json_sha256": "3fc734f94f90eb5e39e4c8b703d364f72bd614557237652ffe49b108b903a518"
+        },
+        {
+          "block": 2,
+          "variant": "official",
+          "samples_ns": [
+            4814533225,
+            4846999654
+          ],
+          "samples_tps": [
+            26.5862,
+            26.4081
+          ],
+          "median_tps": 26.49715,
+          "peak_rss_bytes": 5285613568,
+          "file_pages_by_numa_node": {
+            "1": 699196
+          },
+          "loadavg_before": "31.12 24.42 18.58",
+          "loadavg_after": "32.19 24.87 18.79",
+          "source_native_json_sha256": "dfd46a3e09dd1505a20653da8c00f65b16ad864a71937605db66e370087a8c6f"
+        },
+        {
+          "block": 2,
+          "variant": "optic",
+          "samples_ns": [
+            4855219823,
+            4859706722
+          ],
+          "samples_tps": [
+            26.3634,
+            26.339
+          ],
+          "median_tps": 26.3512,
+          "peak_rss_bytes": 5322907648,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "32.19 24.87 18.79",
+          "loadavg_after": "31.17 24.96 18.92",
+          "source_native_json_sha256": "87a28ce8b30020d508179c6c014ba266a928e39b8cb05b3818ed9ce789b7bc30"
+        },
+        {
+          "block": 3,
+          "variant": "optic",
+          "samples_ns": [
+            4823965553,
+            4831222997
+          ],
+          "samples_tps": [
+            26.5342,
+            26.4943
+          ],
+          "median_tps": 26.514249999999997,
+          "peak_rss_bytes": 5324177408,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "34.45 28.52 21.59",
+          "loadavg_after": "32.72 28.39 21.66",
+          "source_native_json_sha256": "f5fa877abf34038db079afaa4dede7f9180a7dfb9d0c04c6daff773d23b794d3"
+        },
+        {
+          "block": 3,
+          "variant": "official",
+          "samples_ns": [
+            4809503018,
+            4836872647
+          ],
+          "samples_tps": [
+            26.614,
+            26.4634
+          ],
+          "median_tps": 26.5387,
+          "peak_rss_bytes": 5285621760,
+          "file_pages_by_numa_node": {
+            "1": 699196
+          },
+          "loadavg_before": "32.72 28.39 21.66",
+          "loadavg_after": "31.37 28.27 21.72",
+          "source_native_json_sha256": "c5388a8c9b29e84dc59890c43a206a745378959b17d7c266eab6d6f7432346a7"
+        }
+      ],
+      "paired_optic_over_official": [
+        1.0828383049740815,
+        1.0004542539546815,
+        0.9944918604453685,
+        0.9990787039304864
+      ],
+      "official": {
+        "median_tps": 26.346975,
+        "min_process_tps": 16.38795,
+        "max_process_tps": 26.5387,
+        "peak_rss_bytes": 5289492480
+      },
+      "optic": {
+        "median_tps": 26.27995,
+        "min_process_tps": 17.7455,
+        "max_process_tps": 26.514249999999997,
+        "peak_rss_bytes": 5326442496
+      },
+      "median_paired_ratio": 0.999766478942584
+    },
+    {
+      "case": {
+        "id": "tg128-d2048-t36",
+        "prompt": 0,
+        "generation": 128,
+        "depth": 2048,
+        "threads": 36
+      },
+      "processes": [
+        {
+          "block": 0,
+          "variant": "optic",
+          "samples_ns": [
+            5217441469,
+            5092991442
+          ],
+          "samples_tps": [
+            24.5331,
+            25.1326
+          ],
+          "median_tps": 24.83285,
+          "peak_rss_bytes": 5469179904,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "22.76 15.47 8.06",
+          "loadavg_after": "28.79 17.35 8.83",
+          "source_native_json_sha256": "37d27dc6b12955a0b5c43c0109aa136f36c89d820dae51c803a37c8afeaa9fc9"
+        },
+        {
+          "block": 0,
+          "variant": "official",
+          "samples_ns": [
+            5198141677,
+            5011358914
+          ],
+          "samples_tps": [
+            24.6242,
+            25.542
+          ],
+          "median_tps": 25.0831,
+          "peak_rss_bytes": 5551349760,
+          "file_pages_by_numa_node": {
+            "1": 730204
+          },
+          "loadavg_before": "28.79 17.35 8.83",
+          "loadavg_after": "29.74 18.25 9.31",
+          "source_native_json_sha256": "62d5f18ed3b76054078bb1116cf2409b7b9fb47265fd7d0acac58a4bdb27c3a5"
+        },
+        {
+          "block": 1,
+          "variant": "optic",
+          "samples_ns": [
+            5265182126,
+            5145867820
+          ],
+          "samples_tps": [
+            24.3107,
+            24.8743
+          ],
+          "median_tps": 24.5925,
+          "peak_rss_bytes": 5463306240,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "32.70 22.74 12.82",
+          "loadavg_after": "34.48 23.79 13.38",
+          "source_native_json_sha256": "69be38b9f65e04fe17d28416ed771c240893c3c1806ebfe06b65e8c70a41d924"
+        },
+        {
+          "block": 1,
+          "variant": "official",
+          "samples_ns": [
+            5196818075,
+            5061947764
+          ],
+          "samples_tps": [
+            24.6305,
+            25.2867
+          ],
+          "median_tps": 24.9586,
+          "peak_rss_bytes": 5555867648,
+          "file_pages_by_numa_node": {
+            "1": 730204
+          },
+          "loadavg_before": "34.48 23.79 13.38",
+          "loadavg_after": "36.07 24.85 13.95",
+          "source_native_json_sha256": "ea95cea679eb8adf64794cf8996a1e989cb9db972f8227939278156d40724156"
+        },
+        {
+          "block": 2,
+          "variant": "official",
+          "samples_ns": [
+            5181599805,
+            5009527186
+          ],
+          "samples_tps": [
+            24.7028,
+            25.5513
+          ],
+          "median_tps": 25.12705,
+          "peak_rss_bytes": 5549023232,
+          "file_pages_by_numa_node": {
+            "1": 730124
+          },
+          "loadavg_before": "25.79 22.55 17.72",
+          "loadavg_after": "29.91 23.70 18.20",
+          "source_native_json_sha256": "8f8158daf85b1cd4d74bc62eb32a69795d74fdc386e919e456ab7301a7a1236b"
+        },
+        {
+          "block": 2,
+          "variant": "optic",
+          "samples_ns": [
+            5427014853,
+            5281718493
+          ],
+          "samples_tps": [
+            23.5857,
+            24.2345
+          ],
+          "median_tps": 23.9101,
+          "peak_rss_bytes": 5468090368,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "29.91 23.70 18.20",
+          "loadavg_after": "31.12 24.42 18.58",
+          "source_native_json_sha256": "d56d76bca92d1f2aea7836a71d44e5095a7618aa88329f902e3bb21a33117ae1"
+        },
+        {
+          "block": 3,
+          "variant": "official",
+          "samples_ns": [
+            5157346270,
+            5019090242
+          ],
+          "samples_tps": [
+            24.819,
+            25.5026
+          ],
+          "median_tps": 25.160800000000002,
+          "peak_rss_bytes": 5551276032,
+          "file_pages_by_numa_node": {
+            "1": 730140
+          },
+          "loadavg_before": "34.27 27.63 21.01",
+          "loadavg_after": "35.64 28.37 21.39",
+          "source_native_json_sha256": "8f452a99dd198dc43d37dfa25143919b8b6cefef39a9e5f55e5d93839ff7f4f6"
+        },
+        {
+          "block": 3,
+          "variant": "optic",
+          "samples_ns": [
+            5183621368,
+            5033902990
+          ],
+          "samples_tps": [
+            24.6932,
+            25.4276
+          ],
+          "median_tps": 25.0604,
+          "peak_rss_bytes": 5463285760,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "35.64 28.37 21.39",
+          "loadavg_after": "34.45 28.52 21.59",
+          "source_native_json_sha256": "b864a308942db01124799f0f02871fd8f8c435b0c8ede8afec36158acf33e32a"
+        }
+      ],
+      "paired_optic_over_official": [
+        0.9900231630061674,
+        0.9853317093106184,
+        0.9515681307594803,
+        0.9960096658293853
+      ],
+      "official": {
+        "median_tps": 25.105075,
+        "min_process_tps": 24.9586,
+        "max_process_tps": 25.160800000000002,
+        "peak_rss_bytes": 5555867648
+      },
+      "optic": {
+        "median_tps": 24.712675,
+        "min_process_tps": 23.9101,
+        "max_process_tps": 25.0604,
+        "peak_rss_bytes": 5469179904
+      },
+      "median_paired_ratio": 0.9876774361583929
+    },
+    {
+      "case": {
+        "id": "tg512-d256-t36",
+        "prompt": 0,
+        "generation": 512,
+        "depth": 256,
+        "threads": 36
+      },
+      "processes": [
+        {
+          "block": 0,
+          "variant": "optic",
+          "samples_ns": [
+            19698326880,
+            19747677004
+          ],
+          "samples_tps": [
+            25.9921,
+            25.9271
+          ],
+          "median_tps": 25.959600000000002,
+          "peak_rss_bytes": 5344141312,
+          "file_pages_by_numa_node": {},
+          "loadavg_before": "17.30 17.46 10.28",
+          "loadavg_after": "28.78 20.34 11.59",
+          "source_native_json_sha256": "ae7f08301d83badc9607d0f3520a4dbcc01aba263699a95be70fcdc6329c7d1e"
+        },
+        {
+          "block": 0,
+          "variant": "official",
+          "samples_ns": [
+            19870197453,
+            19597560131
+          ],
+          "samples_tps": [
+            25.7672,
+            26.1257
+          ],
+          "median_tps": 25.94645,
+          "peak_rss_bytes": 5355655168,
+          "file_pages_by_numa_node": {
+            "1": 712492
+          },
+          "loadavg_before": "28.78 20.34 11.59",
+          "loadavg_after": "32.70 22.74 12.82",
+          "source_native_json_sha256": "3a60ebf5532c7e89ddd71221c703888f99bf80bfd62ec5397f3836ab8d320fd3"
+        },
+        {
+          "block": 1,
+          "variant": "optic",
+          "samples_ns": [
+            19670567962,
+            19628167910
+          ],
+          "samples_tps": [
+            26.0287,
+            26.085
+          ],
+          "median_tps": 26.05685,
+          "peak_rss_bytes": 5344133120,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "36.07 24.85 13.95",
+          "loadavg_after": "36.31 26.35 14.97",
+          "source_native_json_sha256": "205b4994a3955903f8391fef17900aa9721054820994aa26d0459e9460001a14"
+        },
+        {
+          "block": 1,
+          "variant": "official",
+          "samples_ns": [
+            19689065012,
+            19555853490
+          ],
+          "samples_tps": [
+            26.0043,
+            26.1814
+          ],
+          "median_tps": 26.09285,
+          "peak_rss_bytes": 5350682624,
+          "file_pages_by_numa_node": {
+            "1": 712364
+          },
+          "loadavg_before": "36.31 26.35 14.97",
+          "loadavg_after": "37.09 27.82 15.99",
+          "source_native_json_sha256": "448452cd70a6dd5209963e34cfe84d489389d7ee5bd8ddf58063f0bad77e8cdf"
+        },
+        {
+          "block": 2,
+          "variant": "official",
+          "samples_ns": [
+            19443167167,
+            19402289357
+          ],
+          "samples_tps": [
+            26.3332,
+            26.3886
+          ],
+          "median_tps": 26.3609,
+          "peak_rss_bytes": 5353058304,
+          "file_pages_by_numa_node": {
+            "1": 712412
+          },
+          "loadavg_before": "21.03 22.82 18.62",
+          "loadavg_after": "29.19 24.70 19.42",
+          "source_native_json_sha256": "1be6962a80f55c20fc2a4d445553e4338df07886b8013156bec3d0ca8cf0b74b"
+        },
+        {
+          "block": 2,
+          "variant": "optic",
+          "samples_ns": [
+            19488983332,
+            19533093499
+          ],
+          "samples_tps": [
+            26.2713,
+            26.2119
+          ],
+          "median_tps": 26.2416,
+          "peak_rss_bytes": 5343035392,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "29.19 24.70 19.42",
+          "loadavg_after": "32.87 26.15 20.16",
+          "source_native_json_sha256": "f727cedc2d481ffaa090e2572cf58bb44da52d9de6719e299c723dd71d03deb7"
+        },
+        {
+          "block": 3,
+          "variant": "official",
+          "samples_ns": [
+            19401561465,
+            19314926670
+          ],
+          "samples_tps": [
+            26.3896,
+            26.508
+          ],
+          "median_tps": 26.4488,
+          "peak_rss_bytes": 5357580288,
+          "file_pages_by_numa_node": {
+            "1": 712492
+          },
+          "loadavg_before": "31.37 28.27 21.72",
+          "loadavg_after": "34.51 29.47 22.41",
+          "source_native_json_sha256": "8a48de04e0de3ddd7360c89322b0c2f1f2f2a4502f513cdd9d9a4284b010eede"
+        },
+        {
+          "block": 3,
+          "variant": "optic",
+          "samples_ns": [
+            19463336429,
+            19431350038
+          ],
+          "samples_tps": [
+            26.3059,
+            26.3492
+          ],
+          "median_tps": 26.327550000000002,
+          "peak_rss_bytes": 5347569664,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "34.51 29.47 22.41",
+          "loadavg_after": "34.39 30.03 22.92",
+          "source_native_json_sha256": "fd565ae8681cd6c89b353503f8fa15465ab4d010642a9d4d0e8bf6ba47b62148"
+        }
+      ],
+      "paired_optic_over_official": [
+        1.000506813070767,
+        0.9986203116945831,
+        0.9954743578557635,
+        0.9954156710323343
+      ],
+      "official": {
+        "median_tps": 26.226875,
+        "min_process_tps": 25.94645,
+        "max_process_tps": 26.4488,
+        "peak_rss_bytes": 5357580288
+      },
+      "optic": {
+        "median_tps": 26.149225,
+        "min_process_tps": 25.959600000000002,
+        "max_process_tps": 26.327550000000002,
+        "peak_rss_bytes": 5347569664
+      },
+      "median_paired_ratio": 0.9970473347751734
+    },
+    {
+      "case": {
+        "id": "tg128-d256-t4",
+        "prompt": 0,
+        "generation": 128,
+        "depth": 256,
+        "threads": 4
+      },
+      "processes": [
+        {
+          "block": 0,
+          "variant": "official",
+          "samples_ns": [
+            11941434367,
+            11884954618
+          ],
+          "samples_tps": [
+            10.719,
+            10.7699
+          ],
+          "median_tps": 10.74445,
+          "peak_rss_bytes": 5304770560,
+          "file_pages_by_numa_node": {
+            "1": 1
+          },
+          "loadavg_before": "26.57 19.12 10.15",
+          "loadavg_after": "19.16 18.04 10.07",
+          "source_native_json_sha256": "a0f1836ba308d7791a57fa65f273ca4705f9ca4b062c9ecbba2b20e1d7dbe98d"
+        },
+        {
+          "block": 0,
+          "variant": "optic",
+          "samples_ns": [
+            12053640951,
+            12010749588
+          ],
+          "samples_tps": [
+            10.6192,
+            10.6571
+          ],
+          "median_tps": 10.63815,
+          "peak_rss_bytes": 5327626240,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "19.16 18.04 10.07",
+          "loadavg_after": "13.90 16.85 9.97",
+          "source_native_json_sha256": "4297796022a2256538a0cbe286b265a811e3127ab6f3f55e32558057e78ad266"
+        },
+        {
+          "block": 1,
+          "variant": "official",
+          "samples_ns": [
+            11939774157,
+            11868415273
+          ],
+          "samples_tps": [
+            10.7205,
+            10.7849
+          ],
+          "median_tps": 10.7527,
+          "peak_rss_bytes": 5304643584,
+          "file_pages_by_numa_node": {
+            "1": 699196
+          },
+          "loadavg_before": "30.35 27.07 16.12",
+          "loadavg_after": "21.07 25.12 15.82",
+          "source_native_json_sha256": "1268c1eb8513244605ee7bae47214361ef34a8fbc4a415d89af165af7b7e7461"
+        },
+        {
+          "block": 1,
+          "variant": "optic",
+          "samples_ns": [
+            12115763756,
+            11993198912
+          ],
+          "samples_tps": [
+            10.5647,
+            10.6727
+          ],
+          "median_tps": 10.6187,
+          "peak_rss_bytes": 5327699968,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "21.07 25.12 15.82",
+          "loadavg_after": "14.84 23.10 15.49",
+          "source_native_json_sha256": "62fb02c0f0f7aeac76a88e32c66f05f0a492824f74c06ed7a639c797d2a9d862"
+        },
+        {
+          "block": 2,
+          "variant": "optic",
+          "samples_ns": [
+            12098275750,
+            12026395901
+          ],
+          "samples_tps": [
+            10.58,
+            10.6433
+          ],
+          "median_tps": 10.611650000000001,
+          "peak_rss_bytes": 5327609856,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "19.17 23.23 17.39",
+          "loadavg_after": "14.29 21.66 17.05",
+          "source_native_json_sha256": "d38abf9f424e0ffe8ba390d15717955162933588761bd6e9c0e91adffa3c87f1"
+        },
+        {
+          "block": 2,
+          "variant": "official",
+          "samples_ns": [
+            11945978964,
+            11877288850
+          ],
+          "samples_tps": [
+            10.7149,
+            10.7769
+          ],
+          "median_tps": 10.745899999999999,
+          "peak_rss_bytes": 5305733120,
+          "file_pages_by_numa_node": {
+            "1": 699196
+          },
+          "loadavg_before": "14.29 21.66 17.05",
+          "loadavg_after": "11.02 20.15 16.69",
+          "source_native_json_sha256": "5663262291760d11ea17de2d88aa8422fb01612a7d060070e12fc60140675bb9"
+        },
+        {
+          "block": 3,
+          "variant": "optic",
+          "samples_ns": [
+            12023127700,
+            11947471962
+          ],
+          "samples_tps": [
+            10.6461,
+            10.7136
+          ],
+          "median_tps": 10.67985,
+          "peak_rss_bytes": 5328814080,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "22.98 26.36 22.28",
+          "loadavg_after": "15.99 24.22 21.71",
+          "source_native_json_sha256": "3c508aa330b109f18bb0ec278903a9727d156e3d6b27380ddd57f4e0735b95d0"
+        },
+        {
+          "block": 3,
+          "variant": "official",
+          "samples_ns": [
+            11882094731,
+            11798118791
+          ],
+          "samples_tps": [
+            10.7725,
+            10.8492
+          ],
+          "median_tps": 10.81085,
+          "peak_rss_bytes": 5305913344,
+          "file_pages_by_numa_node": {
+            "1": 699164
+          },
+          "loadavg_before": "15.99 24.22 21.71",
+          "loadavg_after": "12.93 22.69 21.28",
+          "source_native_json_sha256": "527ee054aa59ea036a3593ddd466cd042bbdad713da3c05f99fc0396ff7f2852"
+        }
+      ],
+      "paired_optic_over_official": [
+        0.9901065201103825,
+        0.9875380137081848,
+        0.9875068630826642,
+        0.9878825439257782
+      ],
+      "official": {
+        "median_tps": 10.7493,
+        "min_process_tps": 10.74445,
+        "max_process_tps": 10.81085,
+        "peak_rss_bytes": 5305913344
+      },
+      "optic": {
+        "median_tps": 10.628425,
+        "min_process_tps": 10.611650000000001,
+        "max_process_tps": 10.67985,
+        "peak_rss_bytes": 5328814080
+      },
+      "median_paired_ratio": 0.9877102788169816
+    },
+    {
+      "case": {
+        "id": "tg128-d256-t8",
+        "prompt": 0,
+        "generation": 128,
+        "depth": 256,
+        "threads": 8
+      },
+      "processes": [
+        {
+          "block": 0,
+          "variant": "official",
+          "samples_ns": [
+            8426931725,
+            8490019238
+          ],
+          "samples_tps": [
+            15.1894,
+            15.0765
+          ],
+          "median_tps": 15.13295,
+          "peak_rss_bytes": 5303500800,
+          "file_pages_by_numa_node": {
+            "1": 699196
+          },
+          "loadavg_before": "32.92 15.52 7.62",
+          "loadavg_after": "26.38 15.37 7.78",
+          "source_native_json_sha256": "0ffa456ae58cfe3a673168e8cce717ab04c42506b442a7db8985ca08052e8c47"
+        },
+        {
+          "block": 0,
+          "variant": "optic",
+          "samples_ns": [
+            7804758519,
+            7825834780
+          ],
+          "samples_tps": [
+            16.4003,
+            16.3561
+          ],
+          "median_tps": 16.3782,
+          "peak_rss_bytes": 5328809984,
+          "file_pages_by_numa_node": {},
+          "loadavg_before": "26.38 15.37 7.78",
+          "loadavg_after": "22.49 15.20 7.89",
+          "source_native_json_sha256": "1120539eab20292b02c8aaa5f728f39beef1b6ab70209e49dd24a4239726b3a9"
+        },
+        {
+          "block": 1,
+          "variant": "optic",
+          "samples_ns": [
+            7836378143,
+            7762323659
+          ],
+          "samples_tps": [
+            16.3341,
+            16.4899
+          ],
+          "median_tps": 16.412,
+          "peak_rss_bytes": 5326450688,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "31.02 26.47 17.68",
+          "loadavg_after": "23.60 25.09 17.45",
+          "source_native_json_sha256": "75af348851aee93c877a1665ee59841dddb3adb2a0ecb4b3f40fbc5aa2b5d5c7"
+        },
+        {
+          "block": 1,
+          "variant": "official",
+          "samples_ns": [
+            7606309632,
+            7592449398
+          ],
+          "samples_tps": [
+            16.8281,
+            16.8589
+          ],
+          "median_tps": 16.8435,
+          "peak_rss_bytes": 5302202368,
+          "file_pages_by_numa_node": {
+            "1": 1
+          },
+          "loadavg_before": "23.60 25.09 17.45",
+          "loadavg_after": "20.56 24.29 17.35",
+          "source_native_json_sha256": "56d7a334ba0f9f15f15a1779e7450200abe138865d874c5fa346a20bfdf33390"
+        },
+        {
+          "block": 2,
+          "variant": "optic",
+          "samples_ns": [
+            7731615781,
+            7675736078
+          ],
+          "samples_tps": [
+            16.5554,
+            16.6759
+          ],
+          "median_tps": 16.61565,
+          "peak_rss_bytes": 5327650816,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "31.17 24.96 18.92",
+          "loadavg_after": "24.65 23.87 18.69",
+          "source_native_json_sha256": "3cd761a62fc73ab9ed881d665f20c55065a60fca325dd4ca1d29f5f7dba21e6a"
+        },
+        {
+          "block": 2,
+          "variant": "official",
+          "samples_ns": [
+            7533305131,
+            7480808347
+          ],
+          "samples_tps": [
+            16.9912,
+            17.1105
+          ],
+          "median_tps": 17.050849999999997,
+          "peak_rss_bytes": 5301268480,
+          "file_pages_by_numa_node": {
+            "1": 699164
+          },
+          "loadavg_before": "24.65 23.87 18.69",
+          "loadavg_after": "19.77 22.79 18.44",
+          "source_native_json_sha256": "f31d7357558eb4a9c7121b2dac762a48e0a25f056f894dc79d559164942d0f10"
+        },
+        {
+          "block": 3,
+          "variant": "official",
+          "samples_ns": [
+            7531562068,
+            7476238347
+          ],
+          "samples_tps": [
+            16.9951,
+            17.1209
+          ],
+          "median_tps": 17.058,
+          "peak_rss_bytes": 5302243328,
+          "file_pages_by_numa_node": {
+            "1": 699180
+          },
+          "loadavg_before": "34.67 30.16 23.00",
+          "loadavg_after": "26.88 28.66 22.66",
+          "source_native_json_sha256": "264ca7ec80a841eed70a945259b0fae90f88d76a618d6b8148d1084f87243c9c"
+        },
+        {
+          "block": 3,
+          "variant": "optic",
+          "samples_ns": [
+            7747850922,
+            7689748639
+          ],
+          "samples_tps": [
+            16.5207,
+            16.6455
+          ],
+          "median_tps": 16.5831,
+          "peak_rss_bytes": 5327618048,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "26.88 28.66 22.66",
+          "loadavg_after": "20.16 26.94 22.25",
+          "source_native_json_sha256": "737f6d554770e31adb2bdc99ee4831908bf622ef34c6d76052661c7cad306957"
+        }
+      ],
+      "paired_optic_over_official": [
+        1.0822873266613582,
+        0.9743818090064417,
+        0.9744763457540241,
+        0.9721596904678158
+      ],
+      "official": {
+        "median_tps": 16.947174999999998,
+        "min_process_tps": 15.13295,
+        "max_process_tps": 17.058,
+        "peak_rss_bytes": 5303500800
+      },
+      "optic": {
+        "median_tps": 16.49755,
+        "min_process_tps": 16.3782,
+        "max_process_tps": 16.61565,
+        "peak_rss_bytes": 5328809984
+      },
+      "median_paired_ratio": 0.9744290773802329
+    },
+    {
+      "case": {
+        "id": "tg128-d256-t16",
+        "prompt": 0,
+        "generation": 128,
+        "depth": 256,
+        "threads": 16
+      },
+      "processes": [
+        {
+          "block": 0,
+          "variant": "official",
+          "samples_ns": [
+            5528643104,
+            5527766217
+          ],
+          "samples_tps": [
+            23.1522,
+            23.1558
+          ],
+          "median_tps": 23.154,
+          "peak_rss_bytes": 5297541120,
+          "file_pages_by_numa_node": {
+            "1": 699196
+          },
+          "loadavg_before": "27.76 18.03 9.28",
+          "loadavg_after": "24.97 17.91 9.39",
+          "source_native_json_sha256": "952f482600bd8ead7908408f8f3370aa2ef6be6e500e031cafac2b6ac80b7633"
+        },
+        {
+          "block": 0,
+          "variant": "optic",
+          "samples_ns": [
+            5763750306,
+            5637106330
+          ],
+          "samples_tps": [
+            22.2078,
+            22.7067
+          ],
+          "median_tps": 22.457250000000002,
+          "peak_rss_bytes": 5327511552,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "24.97 17.91 9.39",
+          "loadavg_after": "23.94 18.03 9.56",
+          "source_native_json_sha256": "1e28424e5a1ebc00b4a85c419ec68e5ed7e13c970a94930f0943462b164e9c77"
+        },
+        {
+          "block": 1,
+          "variant": "official",
+          "samples_ns": [
+            5615350814,
+            5527893888
+          ],
+          "samples_tps": [
+            22.7947,
+            23.1553
+          ],
+          "median_tps": 22.975,
+          "peak_rss_bytes": 5296254976,
+          "file_pages_by_numa_node": {
+            "1": 699164
+          },
+          "loadavg_before": "37.09 27.82 15.99",
+          "loadavg_after": "33.23 27.42 16.05",
+          "source_native_json_sha256": "177cd45f8a442dd018a2180135f97b5a4364b251f238b0a7d6165f27d5ac94b3"
+        },
+        {
+          "block": 1,
+          "variant": "optic",
+          "samples_ns": [
+            5776802717,
+            5614383160
+          ],
+          "samples_tps": [
+            22.1576,
+            22.7986
+          ],
+          "median_tps": 22.478099999999998,
+          "peak_rss_bytes": 5325283328,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "33.23 27.42 16.05",
+          "loadavg_after": "30.35 27.07 16.12",
+          "source_native_json_sha256": "f3e8a68555dad28a41f09b29ac892de748293f60bee916167194dd446a9b8b0d"
+        },
+        {
+          "block": 2,
+          "variant": "optic",
+          "samples_ns": [
+            5497234617,
+            5505667555
+          ],
+          "samples_tps": [
+            23.2844,
+            23.2488
+          ],
+          "median_tps": 23.2666,
+          "peak_rss_bytes": 5327650816,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "19.50 23.71 17.34",
+          "loadavg_after": "19.25 23.45 17.36",
+          "source_native_json_sha256": "01446e7adcd75fb93690fa1b2795ba958323313bc4f83651758048d19468e119"
+        },
+        {
+          "block": 2,
+          "variant": "official",
+          "samples_ns": [
+            5446496925,
+            5447335758
+          ],
+          "samples_tps": [
+            23.5013,
+            23.4977
+          ],
+          "median_tps": 23.499499999999998,
+          "peak_rss_bytes": 5298585600,
+          "file_pages_by_numa_node": {
+            "1": 699196
+          },
+          "loadavg_before": "19.25 23.45 17.36",
+          "loadavg_after": "19.17 23.23 17.39",
+          "source_native_json_sha256": "caa0439f6eddd4c4164bce5d8e6040ace0e725be591642af31bb8d14b1f93908"
+        },
+        {
+          "block": 3,
+          "variant": "optic",
+          "samples_ns": [
+            5470580709,
+            5502770316
+          ],
+          "samples_tps": [
+            23.3979,
+            23.261
+          ],
+          "median_tps": 23.32945,
+          "peak_rss_bytes": 5330046976,
+          "file_pages_by_numa_node": {
+            "1": 703959
+          },
+          "loadavg_before": "20.16 26.94 22.25",
+          "loadavg_after": "18.26 26.20 22.08",
+          "source_native_json_sha256": "dbfb7d2ee3a812b4e31579b40ae199ee42c020118eea4dc352cb9f2564e6eb2b"
+        },
+        {
+          "block": 3,
+          "variant": "official",
+          "samples_ns": [
+            5370672565,
+            5407883126
+          ],
+          "samples_tps": [
+            23.8331,
+            23.6692
+          ],
+          "median_tps": 23.751150000000003,
+          "peak_rss_bytes": 5298532352,
+          "file_pages_by_numa_node": {
+            "1": 699132
+          },
+          "loadavg_before": "18.26 26.20 22.08",
+          "loadavg_after": "18.15 25.92 22.04",
+          "source_native_json_sha256": "bd376dc50805ae6bb0c9f7c14d48979235549cfef2ce5beb4b7eccaaa894949a"
+        }
+      ],
+      "paired_optic_over_official": [
+        0.9699080072557659,
+        0.9783721436343851,
+        0.9900891508329965,
+        0.9822450702387042
+      ],
+      "official": {
+        "median_tps": 23.326749999999997,
+        "min_process_tps": 22.975,
+        "max_process_tps": 23.751150000000003,
+        "peak_rss_bytes": 5298585600
+      },
+      "optic": {
+        "median_tps": 22.872349999999997,
+        "min_process_tps": 22.457250000000002,
+        "max_process_tps": 23.32945,
+        "peak_rss_bytes": 5330046976
+      },
+      "median_paired_ratio": 0.9803086069365446
+    }
+  ]
+}

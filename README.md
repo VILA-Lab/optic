@@ -45,8 +45,10 @@ https://github.com/user-attachments/assets/1d71b26f-c5ac-42fa-abb4-6c4f748cbcdc
 
 ## Contents
 
+- [News](#news)
 - [Highlights](#highlights)
 - [Quick start](#quick-start)
+- [GGUF on CPU](#gguf-on-cpu)
 - [Paper results](#paper-results)
 - [Evaluate on the benchmarks](#evaluate-on-the-benchmarks)
 - [Fit OPTIC](#fit-optic)
@@ -54,6 +56,10 @@ https://github.com/user-attachments/assets/1d71b26f-c5ac-42fa-abb4-6c4f748cbcdc
 - [Acknowledgements](#acknowledgements)
 - [Citation](#citation)
 - [License](#license)
+
+## News
+
+- **2026-10-29:** We now support Gemma 4 E4B CPU inference in GGUF with 100× OPTIC PLE compression, with [downloadable weights](https://huggingface.co/zcahjl3/gemma-4-E4B-it-OPTIC-100x/tree/main/gguf) and a [speed test](scripts/benchmark_gguf_cpu.py).
 
 ## Highlights
 
@@ -110,6 +116,40 @@ The model loader skips the original 5.64 GB PLE tensor and keeps 56.4 MB of
 OPTIC tensors on the GPU. Requested token rows are decoded with one stacked
 matrix multiplication. See the [deployment guide](docs/deployment.md) for local
 checkpoint paths, vLLM generation and an OpenAI-compatible server.
+
+## GGUF on CPU
+
+Run Gemma 4 E4B on CPU with the supplied [llama.cpp integration](docs/gguf.md).
+The [ready-to-run GGUF](https://huggingface.co/zcahjl3/gemma-4-E4B-it-OPTIC-100x/tree/main/gguf)
+includes a startup script that builds the matching runtime:
+
+```bash
+bash examples/run_gguf_cpu.sh --threads 8 -p "Explain why the sky is blue."
+```
+
+Starting from [Google's official QAT Q4_0 GGUF](https://huggingface.co/google/gemma-4-E4B-it-qat-q4_0-gguf),
+OPTIC keeps the backbone unchanged and stores PLE in **56.4 MB**
+(99.94× compression relative to BF16 PLE).
+
+| Metric | Official GGUF | OPTIC GGUF |
+| --- | ---: | ---: |
+| Model file | 5.15 GB | 2.90 GB |
+| CPU generation | 24.81 tokens/s | 24.49 tokens/s |
+| Process wall time, loading + generation | 6.208 s | 6.289 s |
+
+Measured on an Intel Xeon Platinum 8352V with the same 36 pinned physical cores
+and 36 threads for both models: 249 input tokens, 64 generated tokens, batch 1,
+F16 KV, PLE lazy loading enabled, and warm file caches. Timing values are medians
+of eight runs per model. CPU generation speed is approximately the same.
+
+Additional [CPU benchmarks](docs/gguf.md#cpu-workload-matrix) cover 4–36 threads
+and KV depths up to 2,048 tokens.
+
+Provisional GSM8K results on one RTX 4090, using all 1,319 test items with
+8-shot prompting and thinking disabled, are **93.03% / 93.10%**
+(official / OPTIC). Counting output-limit completions as incorrect gives
+**93.03% for both**. See the [setup, commands and results](docs/gguf.md)
+and [CPU benchmark script](scripts/benchmark_gguf_cpu.py).
 
 ## Paper results
 

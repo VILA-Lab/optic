@@ -83,3 +83,9 @@ install_compact_ple(model, artifact, device="cuda:0")
 `load_model` function for loading directly with compressed PLE. The
 [evaluation guide](evaluation.md) runs the seven benchmarks through vLLM
 with reconstructed PLE weights.
+
+## llama.cpp / GGUF
+
+For CPU inference with Google's official QAT Q4_0 GGUF and OPTIC 100× PLE,
+see the [GGUF guide](gguf.md). It includes the llama.cpp patch, conversion,
+CPU generation and matched benchmarking commands, and provisional GSM8K results.

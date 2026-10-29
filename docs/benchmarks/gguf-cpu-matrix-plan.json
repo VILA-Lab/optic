@@ -1,0 +1,94 @@
+{
+  "question": "How do prefill and batch1 decode costs compare across input length, KV depth, generation length and matched CPU thread counts?",
+  "cases": [
+    {
+      "id": "pp64-t36",
+      "prompt": 64,
+      "generation": 0,
+      "depth": 0,
+      "threads": 36
+    },
+    {
+      "id": "pp512-t36",
+      "prompt": 512,
+      "generation": 0,
+      "depth": 0,
+      "threads": 36
+    },
+    {
+      "id": "pp2048-t36",
+      "prompt": 2048,
+      "generation": 0,
+      "depth": 0,
+      "threads": 36
+    },
+    {
+      "id": "tg128-d0-t36",
+      "prompt": 0,
+      "generation": 128,
+      "depth": 0,
+      "threads": 36
+    },
+    {
+      "id": "tg128-d256-t36",
+      "prompt": 0,
+      "generation": 128,
+      "depth": 256,
+      "threads": 36
+    },
+    {
+      "id": "tg128-d2048-t36",
+      "prompt": 0,
+      "generation": 128,
+      "depth": 2048,
+      "threads": 36
+    },
+    {
+      "id": "tg512-d256-t36",
+      "prompt": 0,
+      "generation": 512,
+      "depth": 256,
+      "threads": 36
+    },
+    {
+      "id": "tg128-d256-t4",
+      "prompt": 0,
+      "generation": 128,
+      "depth": 256,
+      "threads": 4
+    },
+    {
+      "id": "tg128-d256-t8",
+      "prompt": 0,
+      "generation": 128,
+      "depth": 256,
+      "threads": 8
+    },
+    {
+      "id": "tg128-d256-t16",
+      "prompt": 0,
+      "generation": 128,
+      "depth": 256,
+      "threads": 16
+    }
+  ],
+  "primary_case": "tg128-d256-t36",
+  "process_pair_blocks": 4,
+  "native_repetitions_per_process": 2,
+  "model_order": "balanced randomized pairs within each case; case order randomized per block",
+  "all_completed_results_retained": true,
+  "main_metric": "median of process medians; pair ratios and all native sample times retained",
+  "native_tool": "unchanged pinned llama bench, synthetic fixed token work without sampling",
+  "load_mode": "mmap",
+  "lazy_mode": "on for both",
+  "kv": "F16",
+  "flash_attention": "on",
+  "batch": 512,
+  "ubatch": 512,
+  "cpu_topology": "CPU36-71 are36physicalcores socket1/NUMA1; SMTsiblings108-143",
+  "thread_masks": "t physical cores starting atCPU36; same mask for both models in each condition",
+  "hardware": "Intel Xeon Platinum8352V; adjust core IDs and thread counts to your CPU topology",
+  "host_condition": "Shared host with concurrent CPU, GPU and storage activity; CPU affinity and system load are recorded.",
+  "context": "Native bench sets n_ctx=n_prompt+n_gen+n_depth; identical between models in every paired condition.",
+  "warmup": "Native bench default: full prompt for pp; one decode for tg; depth prepared/restored before timing."
+}

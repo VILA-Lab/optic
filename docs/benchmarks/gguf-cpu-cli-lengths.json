@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "hardware": "Intel Xeon Platinum8352V",
+  "threads": 36,
+  "cpus": "36-71",
+  "context": 512,
+  "kv": "F16",
+  "lazy_mode": "on",
+  "input_tokens": 249,
+  "cache": "warm files",
+  "host_condition": "Shared host; same CPU affinity and settings for both models.",
+  "decode_rate_convention": "(output_tokens-1)/native decode_ms; first token comes from prefill",
+  "cases": [
+    {
+      "output_tokens": 128,
+      "decode_steps": 127,
+      "source_sha256": "5a516d8d6d8b1fec1d1c7de5707478ae6a2553000fbfc9c9dffd9c3d29beec51",
+      "runs": [
+        {
+          "block": 0,
+          "variant": "official_lazy_on",
+          "actual_output_tokens": 128,
+          "actual_decode_steps": 127,
+          "native_prompt_ms": 981.0,
+          "native_decode_ms": 5241.6,
+          "generation_tps_from_native_ms": 24.22924297924298,
+          "wall_seconds": 8.916571372072212,
+          "peak_rss_bytes": 5276573696,
+          "response_sha256": "d85c2b0f580faff484e61a30b15ece51ffbe9c0965818280bccfc0a6d0748287"
+        },
+        {
+          "block": 0,
+          "variant": "optic_lazy_on",
+          "actual_output_tokens": 128,
+          "actual_decode_steps": 127,
+          "native_prompt_ms": 1003.87,
+          "native_decode_ms": 5134.91,
+          "generation_tps_from_native_ms": 24.732663279395357,
+          "wall_seconds": 8.87819400196895,
+          "peak_rss_bytes": 5340446720,
+          "response_sha256": "63b5d1e022917b628bf4791d431a430b995d405065ff32a1852deb9d0f2b780e"
+        },
+        {
+          "block": 1,
+          "variant": "optic_lazy_on",
+          "actual_output_tokens": 128,
+          "actual_decode_steps": 127,
+          "native_prompt_ms": 1003.16,
+          "native_decode_ms": 5138.5,
+          "generation_tps_from_native_ms": 24.715383866887226,
+          "wall_seconds": 8.877624904038385,
+          "peak_rss_bytes": 5340319744,
+          "response_sha256": "63b5d1e022917b628bf4791d431a430b995d405065ff32a1852deb9d0f2b780e"
+        },
+        {
+          "block": 1,
+          "variant": "official_lazy_on",
+          "actual_output_tokens": 128,
+          "actual_decode_steps": 127,
+          "native_prompt_ms": 987.23,
+          "native_decode_ms": 5236.94,
+          "generation_tps_from_native_ms": 24.250802949814204,
+          "wall_seconds": 8.917228240985423,
+          "peak_rss_bytes": 5271891968,
+          "response_sha256": "d85c2b0f580faff484e61a30b15ece51ffbe9c0965818280bccfc0a6d0748287"
+        },
+        {
+          "block": 2,
+          "variant": "official_lazy_on",
+          "actual_output_tokens": 128,
+          "actual_decode_steps": 127,
+          "native_prompt_ms": 983.81,
+          "native_decode_ms": 5067.35,
+          "generation_tps_from_native_ms": 25.062409346107923,
+          "wall_seconds": 8.738371254992671,
+          "peak_rss_bytes": 5278875648,
+          "response_sha256": "d85c2b0f580faff484e61a30b15ece51ffbe9c0965818280bccfc0a6d0748287"
+        },
+        {
+          "block": 2,
+          "variant": "optic_lazy_on",
+          "actual_output_tokens": 128,
+          "actual_decode_steps": 127,
+          "native_prompt_ms": 1000.45,
+          "native_decode_ms": 5136.26,
+          "generation_tps_from_native_ms": 24.726162616378453,
+          "wall_seconds": 8.817041705944575,
+          "peak_rss_bytes": 5340315648,
+          "response_sha256": "63b5d1e022917b628bf4791d431a430b995d405065ff32a1852deb9d0f2b780e"
+        },
+        {
+          "block": 3,
+          "variant": "optic_lazy_on",
+          "actual_output_tokens": 128,
+          "actual_decode_steps": 127,
+          "native_prompt_ms": 998.85,
+          "native_decode_ms": 5110.08,
+          "generation_tps_from_native_ms": 24.852839877262195,
+          "wall_seconds": 8.84430900705047,
+          "peak_rss_bytes": 5335461888,
+          "response_sha256": "63b5d1e022917b628bf4791d431a430b995d405065ff32a1852deb9d0f2b780e"
+        },
+        {
+          "block": 3,
+          "variant": "official_lazy_on",
+          "actual_output_tokens": 128,
+          "actual_decode_steps": 127,
+          "native_prompt_ms": 987.08,
+          "native_decode_ms": 5092.63,
+          "generation_tps_from_native_ms": 24.937998637246373,
+          "wall_seconds": 8.779614361003041,
+          "peak_rss_bytes": 5274480640,
+          "response_sha256": "d85c2b0f580faff484e61a30b15ece51ffbe9c0965818280bccfc0a6d0748287"
+        }
+      ],
+      "official_lazy_on": {
+        "generation_tps_median": 24.59440079353029,
+        "wall_seconds_median": 8.848092866537627,
+        "max_peak_rss_bytes": 5278875648
+      },
+      "optic_lazy_on": {
+        "generation_tps_median": 24.729412947886907,
+        "wall_seconds_median": 8.860966955544427,
+        "max_peak_rss_bytes": 5340446720
+      }
+    },
+    {
+      "output_tokens": 256,
+      "decode_steps": 255,
+      "source_sha256": "faca2f0e4d5caeabb852229a0241ebba1b56a90271fb2d07e643f66e5a79f9f5",
+      "runs": [
+        {
+          "block": 0,
+          "variant": "optic_lazy_on",
+          "actual_output_tokens": 256,
+          "actual_decode_steps": 255,
+          "native_prompt_ms": 998.85,
+          "native_decode_ms": 10103.33,
+          "generation_tps_from_native_ms": 25.239203312175295,
+          "wall_seconds": 13.859395502018742,
+          "peak_rss_bytes": 5335740416,
+          "response_sha256": "2cd4510383f83b26f7b9cee13cc54b03a00b840fbb521b60e31943cfb8c64742"
+        },
+        {
+          "block": 0,
+          "variant": "official_lazy_on",
+          "actual_output_tokens": 256,
+          "actual_decode_steps": 255,
+          "native_prompt_ms": 983.24,
+          "native_decode_ms": 10129.7,
+          "generation_tps_from_native_ms": 25.173499708777157,
+          "wall_seconds": 13.81726827006787,
+          "peak_rss_bytes": 5276590080,
+          "response_sha256": "037f37eee7d3b0eda428d2fb7c48a69e5520a999ddd44ff2134b66d9cb955aa7"
+        },
+        {
+          "block": 1,
+          "variant": "optic_lazy_on",
+          "actual_output_tokens": 256,
+          "actual_decode_steps": 255,
+          "native_prompt_ms": 1005.01,
+          "native_decode_ms": 10099.59,
+          "generation_tps_from_native_ms": 25.248549693601422,
+          "wall_seconds": 13.868341108085588,
+          "peak_rss_bytes": 5339271168,
+          "response_sha256": "2cd4510383f83b26f7b9cee13cc54b03a00b840fbb521b60e31943cfb8c64742"
+        },
+        {
+          "block": 1,
+          "variant": "official_lazy_on",
+          "actual_output_tokens": 256,
+          "actual_decode_steps": 255,
+          "native_prompt_ms": 986.87,
+          "native_decode_ms": 10080.11,
+          "generation_tps_from_native_ms": 25.297342985344404,
+          "wall_seconds": 13.772496684920043,
+          "peak_rss_bytes": 5279375360,
+          "response_sha256": "037f37eee7d3b0eda428d2fb7c48a69e5520a999ddd44ff2134b66d9cb955aa7"
+        },
+        {
+          "block": 2,
+          "variant": "official_lazy_on",
+          "actual_output_tokens": 256,
+          "actual_decode_steps": 255,
+          "native_prompt_ms": 992.09,
+          "native_decode_ms": 10046.41,
+          "generation_tps_from_native_ms": 25.382201204211256,
+          "wall_seconds": 13.744193456019275,
+          "peak_rss_bytes": 5279141888,
+          "response_sha256": "037f37eee7d3b0eda428d2fb7c48a69e5520a999ddd44ff2134b66d9cb955aa7"
+        },
+        {
+          "block": 2,
+          "variant": "optic_lazy_on",
+          "actual_output_tokens": 256,
+          "actual_decode_steps": 255,
+          "native_prompt_ms": 1001.39,
+          "native_decode_ms": 10097.63,
+          "generation_tps_from_native_ms": 25.253450562161618,
+          "wall_seconds": 13.865678443922661,
+          "peak_rss_bytes": 5338824704,
+          "response_sha256": "2cd4510383f83b26f7b9cee13cc54b03a00b840fbb521b60e31943cfb8c64742"
+        },
+        {
+          "block": 3,
+          "variant": "official_lazy_on",
+          "actual_output_tokens": 256,
+          "actual_decode_steps": 255,
+          "native_prompt_ms": 990.92,
+          "native_decode_ms": 10044.67,
+          "generation_tps_from_native_ms": 25.386598066437227,
+          "wall_seconds": 13.735844420036301,
+          "peak_rss_bytes": 5277962240,
+          "response_sha256": "037f37eee7d3b0eda428d2fb7c48a69e5520a999ddd44ff2134b66d9cb955aa7"
+        },
+        {
+          "block": 3,
+          "variant": "optic_lazy_on",
+          "actual_output_tokens": 256,
+          "actual_decode_steps": 255,
+          "native_prompt_ms": 999.46,
+          "native_decode_ms": 10176.78,
+          "generation_tps_from_native_ms": 25.057041618272184,
+          "wall_seconds": 13.925200877012685,
+          "peak_rss_bytes": 5337817088,
+          "response_sha256": "2cd4510383f83b26f7b9cee13cc54b03a00b840fbb521b60e31943cfb8c64742"
+        }
+      ],
+      "official_lazy_on": {
+        "generation_tps_median": 25.339772094777828,
+        "wall_seconds_median": 13.758345070469659,
+        "max_peak_rss_bytes": 5279375360
+      },
+      "optic_lazy_on": {
+        "generation_tps_median": 25.24387650288836,
+        "wall_seconds_median": 13.867009776004124,
+        "max_peak_rss_bytes": 5339271168
+      }
+    }
+  ]
+}

@@ -44,8 +44,10 @@ https://github.com/user-attachments/assets/ef158c17-e889-428f-b76c-8acfc6d08d55
 
 ## 目录
 
+- [News](#news)
 - [主要结果](#主要结果)
 - [快速开始](#快速开始)
+- [GGUF CPU 推理](#gguf-cpu-推理)
 - [论文结果](#论文结果)
 - [基准评测](#基准评测)
 - [拟合 OPTIC](#拟合-optic)
@@ -53,6 +55,10 @@ https://github.com/user-attachments/assets/ef158c17-e889-428f-b76c-8acfc6d08d55
 - [致谢](#致谢)
 - [引用](#引用)
 - [许可证](#许可证)
+
+## News
+
+- **2026-10-29：** 现已支持保留 100× OPTIC PLE 压缩的 Gemma 4 E4B GGUF CPU 推理，提供[可下载权重](https://huggingface.co/zcahjl3/gemma-4-E4B-it-OPTIC-100x/tree/main/gguf)和[速度测试](scripts/benchmark_gguf_cpu.py)。
 
 ## 主要结果
 
@@ -103,6 +109,35 @@ python examples/decode_optic.py
 模型加载时跳过原始的 5.64 GB PLE 张量，只在 GPU 上保留 56.4 MB 的 OPTIC
 张量。推理时，仅对请求的词元行进行解码，通过一次堆叠矩阵乘法重建各层嵌入。
 本地模型路径、vLLM 推理和 OpenAI 兼容服务的用法见[部署指南](docs/deployment.md)。
+
+## GGUF CPU 推理
+
+[部署包](https://huggingface.co/zcahjl3/gemma-4-E4B-it-OPTIC-100x/tree/main/gguf)包含 GGUF 和配套启动脚本：
+
+```bash
+bash examples/run_gguf_cpu.sh --threads 8 -p "Explain why the sky is blue."
+```
+
+通过配套的 [llama.cpp 接入](docs/gguf.md)，可以在 CPU 上运行 Gemma 4 E4B。
+基于 [Google 官方 QAT Q4_0 GGUF](https://huggingface.co/google/gemma-4-E4B-it-qat-q4_0-gguf)，
+OPTIC 保留相同主干，将 PLE 存为 **56.4 MB**，相对 BF16 PLE 压缩 **99.94×**。
+
+| 指标 | 官方 GGUF | OPTIC GGUF |
+| --- | ---: | ---: |
+| 模型文件 | 5.15 GB | 2.90 GB |
+| CPU 生成速度 | 24.81 tokens/s | 24.49 tokens/s |
+| 新进程加载及生成总耗时 | 6.208 秒 | 6.289 秒 |
+
+测试设备为 Intel Xeon Platinum 8352V，双方使用相同的 36 个绑定物理核和
+36 线程：输入 249 tokens，生成 64 tokens，batch=1，F16 KV，开启 PLE
+按需加载，文件缓存已热。速度和耗时为每个模型 8 次运行的中位数，CPU 生成速度基本相当。
+
+补充的 [CPU 测速](docs/gguf.md#cpu-workload-matrix)覆盖 4–36 线程及最多 2,048 tokens 的已有上下文。
+
+单张 RTX 4090 上的 GSM8K provisional 结果覆盖全部 1,319 道测试题，采用
+8-shot、关闭 thinking：官方与 OPTIC 分别为 **93.03% / 93.10%**。
+将达到输出上限的回答计错后，双方均为 **93.03%**。
+详见[配置、运行命令和结果](docs/gguf.md)及 [CPU 测速脚本](scripts/benchmark_gguf_cpu.py)。
 
 ## 论文结果
 
